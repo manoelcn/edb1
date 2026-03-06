@@ -10,8 +10,8 @@ C++ foi criado por Bjarne Stroustrup nos anos 80 como um "C com classes". A gran
 
 ```c
 // em C você usava:
-printf('Olá, %s!\n', nome);
-scanf('%d', &numero);
+printf("Olá, %s!\n", nome);
+scanf("%d", &numero);
 ```
 
 ```cpp
@@ -31,7 +31,7 @@ O `<<` é o operador de **inserção** e o `>>`é o de **extração**.
 using namespace std; // permite usar cout/cin diretamente
 
 int main() {
-    cout << 'Olá, mundo!' << endl;
+    cout << "Olá, mundo!" << endl;
     return 0;
 }
 ```
@@ -45,9 +45,9 @@ int main() {
 using namespace std;
 
 int main() {
-    string nome = 'Manoel'; // sem char[], sem ponteiro
-    cout << 'Tamanho: ' << nome.size() << endl;
-    cout << 'Olá, ' << nome << endl;
+    string nome = "Manoel"; // sem char[], sem ponteiro
+    cout << "Tamanho: " << nome.size() << endl;
+    cout << "Olá, " << nome << endl;
     return 0;
 }
 ```
