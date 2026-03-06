@@ -53,3 +53,23 @@ int main() {
 ```
 
 Em C você usava `char[]` e funções como `strlen()`. Em C++, `string` é um tipo completo e muito mais confortável de usar.
+
+---
+
+### Compilar pela linha de comando
+
+Abra o terminal e digite:
+
+```bash
+g++ <nome-do-arquivo>.cpp -o <nome-do-arquivo>.exe -Wall -pedantic
+```
+
+**O que significa?**
+
+- `g++`: compilador C++
+- `<nome-do-arquivo>.cpp`: arquivo-fonte
+- `-o <nome-do-arquivo>.exe`: nome do executável gerado
+- `-Wall`: habilita avisos importantes
+- `-pedantic`: reforça conformidade com o padrão da linguagem
+
+Se não aparecer erro, será criado o arquivo `<nome-do-arquivo>.exe`.
