@@ -21,9 +21,9 @@ std::pair<int, int> somaProdutorioDigitos(int N) {
     if (N >= 0 && N <= 9){
         return std::make_pair(N, N);
     } else {
-        int ultimoNumero = N % 10;
+        int ultimoDigito = N % 10;
         auto resultado = somaProdutorioDigitos(N / 10);
-        return std::make_pair(resultado.first + ultimoNumero, resultado.second * ultimoNumero);
+        return std::make_pair(resultado.first + ultimoDigito, resultado.second * ultimoDigito);
     }
 }
 
