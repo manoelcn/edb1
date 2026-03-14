@@ -21,7 +21,7 @@ int soma(int X, int Y) {
     if (Y == 0) {
         return X;
     } else {
-        return soma(X + 1, Y - 1);
+        return 1 + soma(X, Y - 1);
     }
 }
 
