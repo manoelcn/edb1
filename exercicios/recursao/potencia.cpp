@@ -1,7 +1,6 @@
 // Escreva uma função recursiva potencia que calcule base elevado ao expoente.
 
 #include <iostream>
-using namespace std;
 
 int potencia(int base, int expoente) {
     if (expoente <= 0) {
@@ -12,6 +11,6 @@ int potencia(int base, int expoente) {
 }
 
 int main() {
-    cout << potencia(2, 4) << endl;
+    std::cout << potencia(2, 4) << std::endl;
     return 0;
 }
