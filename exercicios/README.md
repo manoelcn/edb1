@@ -1,0 +1,1 @@
+Você pode encontrar os exercícios em [https://projetos.imd.ufrn.br/edb1/exercicios](https://projetos.imd.ufrn.br/edb1/exercicios)
