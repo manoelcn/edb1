@@ -25,7 +25,7 @@ int buscaBinaria(const int arr[], int tamanho, int alvo) {
         int meio = (inicio + fim) / 2;
         if (arr[meio] == alvo) {
             return meio;
-        } else if (meio > alvo) {
+        } else if (arr[meio] > alvo) {
             fim = meio - 1;
         } else {
             inicio = meio + 1;
