@@ -1,0 +1,6 @@
+.venv
+Icon
+*.csv
+*.png
+*.dSYM
+*.txt
