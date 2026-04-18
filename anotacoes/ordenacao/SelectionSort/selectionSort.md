@@ -1,5 +1,9 @@
 # Selection Sort
 
-Divide o array em ordenado e não ordenado. A cada passo, encontra o mínimo da parte não ordenada (menor elemento) e o troca com o primeiro elemento dessa parte.
+Este algoritmo divide o array em duas partes: a parte ordenada (esquerda) e a não ordenada (direita). Ele busca repetidamente o menor elemento da parte não ordenada e o coloca no início.
 
-Complexidade O(n²) em todos os casos.
+## Complexidade
+
+| Melhor caso| Caso médio | Pior caso |
+| :---: | :---: | :---: |
+| O(n²) | O(n²) | O(n²) |
