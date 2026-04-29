@@ -63,6 +63,8 @@ void quickSort(int arr[], int esquerda, int direita)
         return;
     }
 
+    medianaDe3(arr, esquerda, direita);
+
     int pivo = particionar(arr, esquerda, direita);
 
     quickSort(arr, esquerda, pivo - 1);
