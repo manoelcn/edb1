@@ -1,0 +1,1 @@
+Você pode encontrar as provas práticas em [https://projetos.imd.ufrn.br/edb1/provas/-/tree/main/provas_praticas?ref_type=heads](https://projetos.imd.ufrn.br/edb1/provas/-/tree/main/provas_praticas?ref_type=heads)
