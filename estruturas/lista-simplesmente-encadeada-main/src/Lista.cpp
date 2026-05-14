@@ -81,7 +81,35 @@ bool Lista::inserirFim(const std::string &elemento)
  */
 bool Lista::inserirNaPosicao(int i, const std::string &elemento)
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    if (i < 1 || i > this->quantidade + 1)
+    {
+        throw std::out_of_range("");
+    }
+
+    if (i == 1) // Verifica se o índice é o primeiro.
+    {
+        return this->inserirInicio(elemento);
+    }
+
+    if (i == this->quantidade + 1) // Verifica se o índice é o último.
+    {
+        return this->inserirFim(elemento);
+    }
+
+    auto auxiliar = this->primeiro;
+    Lista::No *novo = new Lista::No(elemento);
+
+    for (int j = 1; j < i - 1; j++)
+    // i começa em 1 (primeira posição)
+    // Percorre até o nó i - 1 e insere após ele.
+    {
+        auxiliar = auxiliar->proximo;
+    }
+
+    novo->proximo = auxiliar->proximo;
+    auxiliar->proximo = novo;
+    this->quantidade++;
+    return true;
 }
 
 /**

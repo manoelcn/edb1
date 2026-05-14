@@ -139,44 +139,44 @@ TEST_CASE("removerFim - Remoção no fim após sucessivas inserções no fim") {
     CHECK(lista.tamanho() == 0);
 }
 
-// TEST_CASE("inserirNaPosicao - Inserção na i-ésima posição válida") {
-//     Lista lista;
+TEST_CASE("inserirNaPosicao - Inserção na i-ésima posição válida") {
+    Lista lista;
 
-//     CHECK(lista.inserirNaPosicao(1, "S") == true); // início
-//     REQUIRE(lista.imprimir() == "{S}");
-//     CHECK(lista.tamanho() == 1);
+    CHECK(lista.inserirNaPosicao(1, "S") == true); // início
+    REQUIRE(lista.imprimir() == "{S}");
+    CHECK(lista.tamanho() == 1);
     
-//     CHECK(lista.inserirNaPosicao(2, "C") == true); // fim
-//     REQUIRE(lista.imprimir() == "{S, C}");
-//     CHECK(lista.tamanho() == 2);
+    CHECK(lista.inserirNaPosicao(2, "C") == true); // fim
+    REQUIRE(lista.imprimir() == "{S, C}");
+    CHECK(lista.tamanho() == 2);
     
-//     CHECK(lista.inserirNaPosicao(2, "P") == true); // meio
-//     REQUIRE(lista.imprimir() == "{S, P, C}");
-//     CHECK(lista.tamanho() == 3);
+    CHECK(lista.inserirNaPosicao(2, "P") == true); // meio
+    REQUIRE(lista.imprimir() == "{S, P, C}");
+    CHECK(lista.tamanho() == 3);
 
-//     CHECK(lista.inserirNaPosicao(3, "F") == true); // meio
-//     REQUIRE(lista.imprimir() == "{S, P, F, C}");
-//     CHECK(lista.tamanho() == 4);
+    CHECK(lista.inserirNaPosicao(3, "F") == true); // meio
+    REQUIRE(lista.imprimir() == "{S, P, F, C}");
+    CHECK(lista.tamanho() == 4);
 
-//     CHECK(lista.inserirNaPosicao(5, "!") == true); // fim
-//     REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
-//     CHECK(lista.tamanho() == 5);
-// }
+    CHECK(lista.inserirNaPosicao(5, "!") == true); // fim
+    REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
+    CHECK(lista.tamanho() == 5);
+}
 
-// TEST_CASE("inserirNaPosicao - Inserção na i-ésima posição inválida") {
-//     Lista lista;
+TEST_CASE("inserirNaPosicao - Inserção na i-ésima posição inválida") {
+    Lista lista;
 
-//     CHECK(lista.inserirNaPosicao(1, "S") == true); // início
-//     CHECK(lista.inserirNaPosicao(2, "C") == true); // fim
-//     CHECK(lista.inserirNaPosicao(2, "P") == true); // meio
-//     CHECK(lista.inserirNaPosicao(3, "F") == true); // meio
-//     REQUIRE(lista.imprimir() == "{S, P, F, C}");
+    CHECK(lista.inserirNaPosicao(1, "S") == true); // início
+    CHECK(lista.inserirNaPosicao(2, "C") == true); // fim
+    CHECK(lista.inserirNaPosicao(2, "P") == true); // meio
+    CHECK(lista.inserirNaPosicao(3, "F") == true); // meio
+    REQUIRE(lista.imprimir() == "{S, P, F, C}");
 
-//     CHECK_THROWS_AS(lista.inserirNaPosicao(-1, "X"), std::out_of_range);
-//     CHECK_THROWS_AS(lista.inserirNaPosicao( 0, "X"), std::out_of_range);
-//     CHECK_THROWS_AS(lista.inserirNaPosicao( lista.tamanho()+2, "X"), std::out_of_range);
-//     CHECK_THROWS_AS(lista.inserirNaPosicao( lista.tamanho()+3, "X"), std::out_of_range);
-// }
+    CHECK_THROWS_AS(lista.inserirNaPosicao(-1, "X"), std::out_of_range);
+    CHECK_THROWS_AS(lista.inserirNaPosicao( 0, "X"), std::out_of_range);
+    CHECK_THROWS_AS(lista.inserirNaPosicao( lista.tamanho()+2, "X"), std::out_of_range);
+    CHECK_THROWS_AS(lista.inserirNaPosicao( lista.tamanho()+3, "X"), std::out_of_range);
+}
 
 // TEST_CASE("removerNaPosicao - Remoção na i-ésima posição em lista vazia lança exceção") {
 //     Lista lista;
