@@ -37,14 +37,14 @@ Lista::~Lista()
  */
 bool Lista::inserirInicio(const std::string &elemento)
 {
-    Lista::No *novo = new Lista::No(elemento);
+    Lista::No *novo = new Lista::No(elemento); // Cria um novo nó
     if (this->quantidade == 0)
     {
-        this->ultimo = novo;
+        this->ultimo = novo; // Se a lista estava vazia, ultimo também aponta para o novo nó
     }
-    novo->proximo = this->primeiro;
-    this->primeiro = novo;
-    this->quantidade++;
+    novo->proximo = this->primeiro; // o seu próximo aponta para o primeiro nó
+    this->primeiro = novo; // Atualiza o primeiro nó da lista para o novo nó
+    this->quantidade++; // Incrementa o contador de elementos
     return true;
 }
 
