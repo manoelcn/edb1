@@ -94,15 +94,15 @@ bool Lista::removerInicio()
 {
     if (this->quantidade == 0)
     {
-        throw std::underflow_error("Lista Vazia"); // Retorna underflow_error se a lista estiver vazia.
+        throw std::underflow_error("Lista Vazia."); // Retorna underflow_error se a lista estiver vazia.
     }
-    auto auxiliar = this->primeiro; // Faz um ponteiro auxiliar apontar para o primeiro nó
+    auto auxiliar = this->primeiro;           // Faz um ponteiro auxiliar apontar para o primeiro nó
     this->primeiro = this->primeiro->proximo; // Atualiza primeiro para o próximo nó
     if (this->primeiro == nullptr)
     {
         this->ultimo = nullptr; // Se a lista ficar vazia, ultimo vira nullptr
     }
-    delete auxiliar; // Libera o nó auxiliar
+    delete auxiliar;    // Libera o nó auxiliar
     this->quantidade--; // decrementa o contador
     return true;
 }
