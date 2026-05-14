@@ -80,35 +80,35 @@ TEST_CASE("inserirFim - Sucessivas inserções no fim") {
     CHECK(lista.tamanho() == 4);
 }
 
-// TEST_CASE("removerInicio - Remoção em lista vazia lança exceção") {
-//     Lista lista;
-//     CHECK_THROWS_AS(lista.removerInicio(), std::underflow_error);
-// }
+TEST_CASE("removerInicio - Remoção em lista vazia lança exceção") {
+    Lista lista;
+    CHECK_THROWS_AS(lista.removerInicio(), std::underflow_error);
+}
 
-// TEST_CASE("removerInicio - Remoção no início após inserções no fim") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, P, F, C}");
+TEST_CASE("removerInicio - Remoção no início após inserções no fim") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, P, F, C}");
 
-//     CHECK(lista.removerInicio() == true);
-//     REQUIRE(lista.imprimir() == "{P, F, C}");
-//     CHECK(lista.tamanho() == 3);
+    CHECK(lista.removerInicio() == true);
+    REQUIRE(lista.imprimir() == "{P, F, C}");
+    CHECK(lista.tamanho() == 3);
 
-//     CHECK(lista.removerInicio() == true);
-//     REQUIRE(lista.imprimir() == "{F, C}");
-//     CHECK(lista.tamanho() == 2);
+    CHECK(lista.removerInicio() == true);
+    REQUIRE(lista.imprimir() == "{F, C}");
+    CHECK(lista.tamanho() == 2);
 
-//     CHECK(lista.removerInicio() == true);
-//     REQUIRE(lista.imprimir() == "{C}");
-//     CHECK(lista.tamanho() == 1);
+    CHECK(lista.removerInicio() == true);
+    REQUIRE(lista.imprimir() == "{C}");
+    CHECK(lista.tamanho() == 1);
 
-//     CHECK(lista.removerInicio() == true);
-//     REQUIRE(lista.imprimir() == "{}");
-//     CHECK(lista.tamanho() == 0);
-// }
+    CHECK(lista.removerInicio() == true);
+    REQUIRE(lista.imprimir() == "{}");
+    CHECK(lista.tamanho() == 0);
+}
 
 // TEST_CASE("removerFim - Remoção em lista vazia lança exceção") {
 //     Lista lista;

@@ -43,8 +43,8 @@ bool Lista::inserirInicio(const std::string &elemento)
         this->ultimo = novo; // Se a lista estava vazia, ultimo também aponta para o novo nó
     }
     novo->proximo = this->primeiro; // o seu próximo aponta para o primeiro nó
-    this->primeiro = novo; // Atualiza o primeiro nó da lista para o novo nó
-    this->quantidade++; // Incrementa o contador de elementos
+    this->primeiro = novo;          // Atualiza o primeiro nó da lista para o novo nó
+    this->quantidade++;             // Incrementa o contador de elementos
     return true;
 }
 
@@ -67,7 +67,7 @@ bool Lista::inserirFim(const std::string &elemento)
     }
     novo->proximo = nullptr;
     this->ultimo = novo; // Atualiza ultimo para o novo nó
-    this->quantidade++; // Incrementa o contador de elementos
+    this->quantidade++;  // Incrementa o contador de elementos
     return true;
 }
 
@@ -88,11 +88,23 @@ bool Lista::inserirNaPosicao(int i, const std::string &elemento)
  * @brief Remove o elemento do início da lista.
  *
  * @return true se o elemento for removido com sucesso.
- * @throws std::out_of_range se a lista estiver vazia.
+ * @throws std::underflow_error se a lista estiver vazia.
  */
 bool Lista::removerInicio()
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    if (this->quantidade == 0)
+    {
+        throw std::underflow_error("Lista Vazia"); // Retorna underflow_error se a lista estiver vazia.
+    }
+    auto auxiliar = this->primeiro; // Faz um ponteiro auxiliar apontar para o primeiro nó
+    this->primeiro = this->primeiro->proximo; // Atualiza primeiro para o próximo nó
+    if (this->primeiro == nullptr)
+    {
+        this->ultimo = nullptr; // Se a lista ficar vazia, ultimo vira nullptr
+    }
+    delete auxiliar; // Libera o nó auxiliar
+    this->quantidade--; // decrementa o contador
+    return true;
 }
 
 /**
