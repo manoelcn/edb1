@@ -56,7 +56,19 @@ bool Lista::inserirInicio(const std::string &elemento)
  */
 bool Lista::inserirFim(const std::string &elemento)
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    Lista::No *novo = new Lista::No(elemento);
+    if (this->quantidade == 0)
+    {
+        this->primeiro = novo;
+    }
+    else
+    {
+        this->ultimo->proximo = novo;
+    }
+    novo->proximo = nullptr;
+    this->ultimo = novo;
+    this->quantidade++;
+    return true;
 }
 
 /**

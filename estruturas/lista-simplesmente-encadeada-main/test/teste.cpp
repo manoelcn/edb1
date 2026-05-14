@@ -50,35 +50,35 @@ TEST_CASE("inserirInicio - Sucessivas inserções no início") {
     CHECK(lista.ultimoElemento() == "C");
 }
 
-// TEST_CASE("inserirFim - Primeira inserção deve atualizar ponteiros 'primeiro' e 'ultimo'") {
-//     Lista lista;
+TEST_CASE("inserirFim - Primeira inserção deve atualizar ponteiros 'primeiro' e 'ultimo'") {
+    Lista lista;
 
-//     lista.inserirFim("SPFC");
-//     REQUIRE(lista.imprimir() == "{SPFC}");
-//     CHECK(lista.tamanho() == 1);
-//     CHECK(lista.primeiroElemento() == "SPFC");
-//     CHECK(lista.ultimoElemento() == "SPFC");
-// }
+    lista.inserirFim("SPFC");
+    REQUIRE(lista.imprimir() == "{SPFC}");
+    CHECK(lista.tamanho() == 1);
+    CHECK(lista.primeiroElemento() == "SPFC");
+    CHECK(lista.ultimoElemento() == "SPFC");
+}
 
-// TEST_CASE("inserirFim - Sucessivas inserções no fim") {
-//     Lista lista;
+TEST_CASE("inserirFim - Sucessivas inserções no fim") {
+    Lista lista;
 
-//     lista.inserirFim("S");
-//     REQUIRE(lista.imprimir() == "{S}");
-//     CHECK(lista.tamanho() == 1);
+    lista.inserirFim("S");
+    REQUIRE(lista.imprimir() == "{S}");
+    CHECK(lista.tamanho() == 1);
 
-//     lista.inserirFim("P");
-//     REQUIRE(lista.imprimir() == "{S, P}");
-//     CHECK(lista.tamanho() == 2);
+    lista.inserirFim("P");
+    REQUIRE(lista.imprimir() == "{S, P}");
+    CHECK(lista.tamanho() == 2);
 
-//     lista.inserirFim("F");
-//     REQUIRE(lista.imprimir() == "{S, P, F}");
-//     CHECK(lista.tamanho() == 3);
+    lista.inserirFim("F");
+    REQUIRE(lista.imprimir() == "{S, P, F}");
+    CHECK(lista.tamanho() == 3);
 
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, P, F, C}");
-//     CHECK(lista.tamanho() == 4);
-// }
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, P, F, C}");
+    CHECK(lista.tamanho() == 4);
+}
 
 // TEST_CASE("removerInicio - Remoção em lista vazia lança exceção") {
 //     Lista lista;
