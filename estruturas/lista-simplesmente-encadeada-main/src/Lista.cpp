@@ -56,18 +56,18 @@ bool Lista::inserirInicio(const std::string &elemento)
  */
 bool Lista::inserirFim(const std::string &elemento)
 {
-    Lista::No *novo = new Lista::No(elemento);
+    Lista::No *novo = new Lista::No(elemento); // Cria um novo nó
     if (this->quantidade == 0)
     {
-        this->primeiro = novo;
+        this->primeiro = novo; // Se a lista estava vazia, primeiro também aponta para o novo nó.
     }
     else
     {
-        this->ultimo->proximo = novo;
+        this->ultimo->proximo = novo; // o coloca após o último
     }
     novo->proximo = nullptr;
-    this->ultimo = novo;
-    this->quantidade++;
+    this->ultimo = novo; // Atualiza ultimo para o novo nó
+    this->quantidade++; // Incrementa o contador de elementos
     return true;
 }
 
