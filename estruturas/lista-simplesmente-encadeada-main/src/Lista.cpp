@@ -17,7 +17,7 @@ Lista::~Lista()
 {
     auto aux = this->primeiro;
 
-    while(aux != nullptr)
+    while (aux != nullptr)
     {
         auto tmp = aux;
         aux = aux->proximo;
@@ -31,42 +31,50 @@ Lista::~Lista()
 
 /**
  * @brief Insere um elemento no início da lista.
- * 
+ *
  * @param elemento Elemento a ser inserido.
  * @return true se inserido com sucesso.
  */
-bool Lista::inserirInicio(const std::string& elemento)
+bool Lista::inserirInicio(const std::string &elemento)
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    Lista::No *novo = new Lista::No(elemento);
+    if (this->quantidade == 0)
+    {
+        this->ultimo = novo;
+    }
+    novo->proximo = this->primeiro;
+    this->primeiro = novo;
+    this->quantidade++;
+    return true;
 }
 
 /**
  * @brief Insere um elemento no fim da lista.
- * 
+ *
  * @param elemento Elemento a ser inserido.
  * @return true se inserido com sucesso.
  */
-bool Lista::inserirFim(const std::string& elemento)
+bool Lista::inserirFim(const std::string &elemento)
 {
     throw std::runtime_error("Ainda não foi implementado.");
 }
 
 /**
  * @brief Insere um elemento na posição i da lista.
- * 
+ *
  * @param i Posição onde o elemento será inserido.
  * @param elemento Elemento a ser inserido.
  * @return true se a inserção for realizada com sucesso.
  * @throws std::out_of_range se o índice passado como parâmetro for menor do que 1 ou maior do que o tamanho+1.
  */
-bool Lista::inserirNaPosicao(int i, const std::string& elemento) 
+bool Lista::inserirNaPosicao(int i, const std::string &elemento)
 {
     throw std::runtime_error("Ainda não foi implementado.");
 }
 
 /**
  * @brief Remove o elemento do início da lista.
- * 
+ *
  * @return true se o elemento for removido com sucesso.
  * @throws std::out_of_range se a lista estiver vazia.
  */
@@ -77,7 +85,7 @@ bool Lista::removerInicio()
 
 /**
  * @brief Remove o elemento do fim da lista.
- * 
+ *
  * @return true se o elemento for removido com sucesso.
  * @throws std::out_of_range se a lista estiver vazia.
  */
@@ -88,23 +96,23 @@ bool Lista::removerFim()
 
 /**
  * @brief Remove o elemento da posição i da lista.
- * 
+ *
  * @param i Posição do elemento a ser removido.
  * @return true se o elemento for removido com sucesso.
  * * @throws std::out_of_range se o índice passado como parâmetro for menor do que 1 ou maior do que o tamanho.
  */
-bool Lista::removerNaPosicao(int i) 
+bool Lista::removerNaPosicao(int i)
 {
     throw std::runtime_error("Ainda não foi implementado.");
 }
 
 /**
  * @brief Retorna o primeiro elemento da lista.
- * 
+ *
  * @return Referência constante para a string armazenada no primeiro nó.
  * @throws std::out_of_range se a lista estiver vazia.
  */
-const std::string& Lista::primeiroElemento() const
+const std::string &Lista::primeiroElemento() const
 {
     if (quantidade > 0)
     {
@@ -118,11 +126,11 @@ const std::string& Lista::primeiroElemento() const
 
 /**
  * @brief Retorna o último elemento da lista.
- * 
+ *
  * @return Referência constante para a string armazenada no último nó.
  * @throws std::out_of_range se a lista estiver vazia.
  */
-const std::string& Lista::ultimoElemento() const
+const std::string &Lista::ultimoElemento() const
 {
     if (quantidade > 0)
     {
@@ -136,19 +144,19 @@ const std::string& Lista::ultimoElemento() const
 
 /**
  * @brief Retorna o elemento armazenado na posição i da lista.
- * 
+ *
  * @param i Índice do elemento a ser acessado.
  * @return Referência constante para a string armazenada na posição i.
  * @throws std::out_of_range se o índice passado como parâmetro for menor do que 1 ou maior do que o tamanho.
  */
-const std::string& Lista::elementoNaPosicao(int i) const 
+const std::string &Lista::elementoNaPosicao(int i) const
 {
     throw std::runtime_error("Ainda não foi implementado.");
 }
 
 /**
  * @brief Retorna o número de elementos armazenados na lista.
- * 
+ *
  * @return Quantidade de elementos.
  */
 unsigned long Lista::tamanho() const
@@ -163,7 +171,7 @@ std::string Lista::imprimir() const
 {
     std::ostringstream oss;
     oss << "{";
-    No* atual = primeiro;
+    No *atual = primeiro;
     while (atual != nullptr)
     {
         oss << atual->valor;
@@ -177,11 +185,11 @@ std::string Lista::imprimir() const
 
 /**
  * @brief Remove todos os nós cujo valor é igual ao parâmetro.
- * 
+ *
  * @param valor Valor a ser removido da lista.
  * @return Quantidade de nós removidos.
  */
-int Lista::removerTodos(const std::string& valor)
+int Lista::removerTodos(const std::string &valor)
 {
     throw std::runtime_error("Ainda não foi implementado.");
 }
