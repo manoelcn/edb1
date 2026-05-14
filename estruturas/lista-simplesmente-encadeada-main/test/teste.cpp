@@ -110,34 +110,34 @@ TEST_CASE("removerInicio - Remoção no início após inserções no fim") {
     CHECK(lista.tamanho() == 0);
 }
 
-// TEST_CASE("removerFim - Remoção em lista vazia lança exceção") {
-//     Lista lista;
-//     CHECK_THROWS_AS(lista.removerFim(), std::underflow_error);
-// }
+TEST_CASE("removerFim - Remoção em lista vazia lança exceção") {
+    Lista lista;
+    CHECK_THROWS_AS(lista.removerFim(), std::underflow_error);
+}
 
-// TEST_CASE("removerFim - Remoção no fim após sucessivas inserções no fim") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
+TEST_CASE("removerFim - Remoção no fim após sucessivas inserções no fim") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
 
-//     CHECK(lista.removerFim() == true);
-//     REQUIRE(lista.imprimir() == "{S, P, F}");
-//     CHECK(lista.tamanho() == 3);
+    CHECK(lista.removerFim() == true);
+    REQUIRE(lista.imprimir() == "{S, P, F}");
+    CHECK(lista.tamanho() == 3);
 
-//     CHECK(lista.removerFim() == true);
-//     REQUIRE(lista.imprimir() == "{S, P}");
-//     CHECK(lista.tamanho() == 2);
+    CHECK(lista.removerFim() == true);
+    REQUIRE(lista.imprimir() == "{S, P}");
+    CHECK(lista.tamanho() == 2);
 
-//     CHECK(lista.removerFim() == true);
-//     REQUIRE(lista.imprimir() == "{S}");
-//     CHECK(lista.tamanho() == 1);
+    CHECK(lista.removerFim() == true);
+    REQUIRE(lista.imprimir() == "{S}");
+    CHECK(lista.tamanho() == 1);
 
-//     CHECK(lista.removerFim() == true);
-//     REQUIRE(lista.imprimir() == "{}");
-//     CHECK(lista.tamanho() == 0);
-// }
+    CHECK(lista.removerFim() == true);
+    REQUIRE(lista.imprimir() == "{}");
+    CHECK(lista.tamanho() == 0);
+}
 
 // TEST_CASE("inserirNaPosicao - Inserção na i-ésima posição válida") {
 //     Lista lista;

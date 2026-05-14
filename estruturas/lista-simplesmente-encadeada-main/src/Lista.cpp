@@ -115,7 +115,24 @@ bool Lista::removerInicio()
  */
 bool Lista::removerFim()
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    if (this->quantidade == 0)
+    {
+        throw std::underflow_error("Lista Vazia."); // Retorna underflow_error se a lista estiver vazia
+    }
+    if (this->quantidade == 1)
+    {
+        return Lista::removerInicio(); // Se há um único elemento, chama removerInicio
+    }
+    auto auxiliar = this->primeiro;
+    while (auxiliar->proximo != this->ultimo)
+    {
+        auxiliar = auxiliar->proximo; // percorre até o penúltimo nó
+    }
+    delete this->ultimo;             // Remove o último nó
+    this->ultimo = auxiliar;         // atualiza ultimo
+    this->ultimo->proximo = nullptr; // ajusta os ponteiros
+    this->quantidade--;              // decrementa o contador
+    return true;
 }
 
 /**
