@@ -178,59 +178,59 @@ TEST_CASE("inserirNaPosicao - Inserção na i-ésima posição inválida") {
     CHECK_THROWS_AS(lista.inserirNaPosicao( lista.tamanho()+3, "X"), std::out_of_range);
 }
 
-// TEST_CASE("removerNaPosicao - Remoção na i-ésima posição em lista vazia lança exceção") {
-//     Lista lista;
-//     CHECK_THROWS_AS(lista.removerNaPosicao(1), std::underflow_error); 
-// }
+TEST_CASE("removerNaPosicao - Remoção na i-ésima posição em lista vazia lança exceção") {
+    Lista lista;
+    CHECK_THROWS_AS(lista.removerNaPosicao(1), std::underflow_error); 
+}
 
-// TEST_CASE("removerNaPosicao - Remoção na i-ésima posição válida") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("!");
-//     REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
+TEST_CASE("removerNaPosicao - Remoção na i-ésima posição válida") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("!");
+    REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
 
-//     CHECK(lista.tamanho() == 5);
+    CHECK(lista.tamanho() == 5);
 
-//     CHECK(lista.removerNaPosicao(1) == true); // remove "S", permanece PFC!
-//     REQUIRE(lista.imprimir() == "{P, F, C, !}");
-//     CHECK(lista.tamanho() == 4);
+    CHECK(lista.removerNaPosicao(1) == true); // remove "S", permanece PFC!
+    REQUIRE(lista.imprimir() == "{P, F, C, !}");
+    CHECK(lista.tamanho() == 4);
 
-//     CHECK(lista.removerNaPosicao(4) == true); // remove "!", permanece PFC
-//     REQUIRE(lista.imprimir() == "{P, F, C}");
-//     CHECK(lista.tamanho() == 3);
+    CHECK(lista.removerNaPosicao(4) == true); // remove "!", permanece PFC
+    REQUIRE(lista.imprimir() == "{P, F, C}");
+    CHECK(lista.tamanho() == 3);
 
-//     CHECK(lista.removerNaPosicao(2) == true); // remove "F", permanece PC
-//     REQUIRE(lista.imprimir() == "{P, C}");
-//     CHECK(lista.tamanho() == 2);
+    CHECK(lista.removerNaPosicao(2) == true); // remove "F", permanece PC
+    REQUIRE(lista.imprimir() == "{P, C}");
+    CHECK(lista.tamanho() == 2);
 
-//     CHECK(lista.removerNaPosicao(2) == true); // remove "C", permanece P
-//     REQUIRE(lista.imprimir() == "{P}");
-//     CHECK(lista.tamanho() == 1);
+    CHECK(lista.removerNaPosicao(2) == true); // remove "C", permanece P
+    REQUIRE(lista.imprimir() == "{P}");
+    CHECK(lista.tamanho() == 1);
 
-//     CHECK(lista.removerNaPosicao(1) == true);  // remove "P", fica vazia
-//     REQUIRE(lista.imprimir() == "{}");
-//     CHECK(lista.tamanho() == 0);
-//     CHECK_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
-//     CHECK_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
-// }
+    CHECK(lista.removerNaPosicao(1) == true);  // remove "P", fica vazia
+    REQUIRE(lista.imprimir() == "{}");
+    CHECK(lista.tamanho() == 0);
+    CHECK_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
+    CHECK_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
+}
 
-// TEST_CASE("removerNaPosicao - Remoção na i-ésima posição inválida") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("!");
-//     REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
+TEST_CASE("removerNaPosicao - Remoção na i-ésima posição inválida") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("!");
+    REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
 
-//     CHECK_THROWS_AS(lista.removerNaPosicao(-1), std::out_of_range);
-//     CHECK_THROWS_AS(lista.removerNaPosicao( 0), std::out_of_range);
-//     CHECK_THROWS_AS(lista.removerNaPosicao(lista.tamanho()+1), std::out_of_range);
-//     CHECK_THROWS_AS(lista.removerNaPosicao(lista.tamanho()+2), std::out_of_range);
-// }
+    CHECK_THROWS_AS(lista.removerNaPosicao(-1), std::out_of_range);
+    CHECK_THROWS_AS(lista.removerNaPosicao( 0), std::out_of_range);
+    CHECK_THROWS_AS(lista.removerNaPosicao(lista.tamanho()+1), std::out_of_range);
+    CHECK_THROWS_AS(lista.removerNaPosicao(lista.tamanho()+2), std::out_of_range);
+}
 
 // TEST_CASE("Acesso à i-ésima posição válida") {
 //     Lista lista;
