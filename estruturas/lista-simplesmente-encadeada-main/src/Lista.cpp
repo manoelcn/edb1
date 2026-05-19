@@ -172,7 +172,36 @@ bool Lista::removerFim()
  */
 bool Lista::removerNaPosicao(int i)
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    if (this->quantidade == 0)
+    {
+        throw std::underflow_error("");
+    }
+
+    if (i < 1 || i > this->quantidade)
+    {
+        throw std::out_of_range("");
+    }
+
+    if (i == 1) // Verifica se o índice é o primeiro
+    {
+        return removerInicio();
+    }
+
+    if (i == this->quantidade) // Verifica se o índice é o último
+    {
+        return removerFim();
+    }
+
+    auto auxiliar = this->primeiro;
+    for (int j = 1; j < i - 1; j++) // Percorre até i - 1
+    {
+        auxiliar = auxiliar->proximo;
+    }
+    auto noI = auxiliar->proximo;     // mantém um ponteiro auxiliar apontando para o nó i
+    auxiliar->proximo = noI->proximo; // Ajusta o ponteiro próximo do nó i - 1 para apontar para o nó i + 1
+    delete noI;                       // Libera o nó i
+    this->quantidade--;               // decrementa o contador.
+    return true;
 }
 
 /**
