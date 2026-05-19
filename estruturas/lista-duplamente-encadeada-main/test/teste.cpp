@@ -20,19 +20,19 @@ TEST_CASE("inserirInicio - insere elementos no início da lista e verifica ordem
     REQUIRE(lista.imprimir() == "J<->H<->I<->F<->B<->E<->D<->A<->C<->G");
 }
 
-// TEST_CASE("inserirFim - insere elementos no final da lista e verifica ordem final")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     for (auto s : v1)
-//     {
-//         int tamanhoAntes = lista.tamanho();
-//         REQUIRE(lista.inserirFim(s));
-//         REQUIRE(lista.checarConsistencia() == OK);
-//         REQUIRE(lista.ultimoElemento() == s);
-//         REQUIRE(lista.tamanho() == tamanhoAntes + 1);
-//     }
-//     REQUIRE(lista.imprimir() == "G<->C<->A<->D<->E<->B<->F<->I<->H<->J");
-// }
+TEST_CASE("inserirFim - insere elementos no final da lista e verifica ordem final")
+{
+    ListaDuplamenteEncadeada lista;
+    for (auto s : v1)
+    {
+        int tamanhoAntes = lista.tamanho();
+        REQUIRE(lista.inserirFim(s));
+        REQUIRE(lista.checarConsistencia() == OK);
+        REQUIRE(lista.ultimoElemento() == s);
+        REQUIRE(lista.tamanho() == tamanhoAntes + 1);
+    }
+    REQUIRE(lista.imprimir() == "G<->C<->A<->D<->E<->B<->F<->I<->H<->J");
+}
 
 // TEST_CASE("elementoNaPosicao - acessa elementos pelo índice correto")
 // {

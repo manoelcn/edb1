@@ -157,7 +157,13 @@ bool ListaDuplamenteEncadeada::inserirInicio(std::string s)
  */
 bool ListaDuplamenteEncadeada::inserirFim(std::string s)
 {
-    throw "ERRO: ainda não foi implementado.";
+    No<std::string> *novo = new No(s);
+    novo->anterior = this->cauda->anterior;
+    novo->proximo = this->cauda;
+    novo->proximo->anterior = novo;
+    novo->anterior->proximo = novo;
+    this->quantidade++;
+    return true;
 }
 
 /**
