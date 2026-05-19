@@ -249,7 +249,17 @@ const std::string &Lista::ultimoElemento() const
  */
 const std::string &Lista::elementoNaPosicao(int i) const
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    if (i < 1 || i > this->quantidade)
+    {
+        throw std::out_of_range("");
+    }
+
+    auto elemento = this->primeiro;
+    for (int j = 1; j < i; j++)
+    {
+        elemento = elemento->proximo;
+    }
+    return elemento->valor;
 }
 
 /**
