@@ -139,7 +139,13 @@ int ListaDuplamenteEncadeada::buscar(std::string s) const
  */
 bool ListaDuplamenteEncadeada::inserirInicio(std::string s)
 {
-    throw "ERRO: ainda não foi implementado.";
+    No<std::string> *novo = new No(s);
+    novo->anterior = this->cabeca;
+    novo->proximo = this->cabeca->proximo;
+    novo->proximo->anterior = novo;
+    novo->anterior->proximo = novo;
+    this->quantidade++;
+    return true;
 }
 
 /**

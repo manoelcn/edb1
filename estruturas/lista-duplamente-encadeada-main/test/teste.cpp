@@ -6,19 +6,19 @@
 const std::string v1[] = {"G", "C", "A", "D", "E", "B", "F", "I", "H", "J"};
 const std::string v2[] = {"A", "G", "E", "C", "B", "F", "D", "J", "I", "H"};
 
-// TEST_CASE("inserirInicio - insere elementos no início da lista e verifica ordem final")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     for (auto s : v1)
-//     {
-//         int tamanhoAntes = lista.tamanho();
-//         REQUIRE(lista.inserirInicio(s));
-//         REQUIRE(lista.checarConsistencia() == OK);
-//         REQUIRE(lista.primeiroElemento() == s);
-//         REQUIRE(lista.tamanho() == tamanhoAntes + 1);
-//     }
-//     REQUIRE(lista.imprimir() == "J<->H<->I<->F<->B<->E<->D<->A<->C<->G");
-// }
+TEST_CASE("inserirInicio - insere elementos no início da lista e verifica ordem final")
+{
+    ListaDuplamenteEncadeada lista;
+    for (auto s : v1)
+    {
+        int tamanhoAntes = lista.tamanho();
+        REQUIRE(lista.inserirInicio(s));
+        REQUIRE(lista.checarConsistencia() == OK);
+        REQUIRE(lista.primeiroElemento() == s);
+        REQUIRE(lista.tamanho() == tamanhoAntes + 1);
+    }
+    REQUIRE(lista.imprimir() == "J<->H<->I<->F<->B<->E<->D<->A<->C<->G");
+}
 
 // TEST_CASE("inserirFim - insere elementos no final da lista e verifica ordem final")
 // {
