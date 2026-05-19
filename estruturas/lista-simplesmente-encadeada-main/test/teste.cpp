@@ -232,45 +232,45 @@ TEST_CASE("removerNaPosicao - Remoção na i-ésima posição inválida") {
     CHECK_THROWS_AS(lista.removerNaPosicao(lista.tamanho()+2), std::out_of_range);
 }
 
-// TEST_CASE("Acesso à i-ésima posição válida") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("!");
-//     REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
+TEST_CASE("Acesso à i-ésima posição válida") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("!");
+    REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
 
-//     CHECK_NOTHROW(lista.elementoNaPosicao(1));
-//     CHECK(lista.elementoNaPosicao(1) == "S");
+    CHECK_NOTHROW(lista.elementoNaPosicao(1));
+    CHECK(lista.elementoNaPosicao(1) == "S");
 
-//     CHECK_NOTHROW(lista.elementoNaPosicao(2));
-//     CHECK(lista.elementoNaPosicao(2) == "P");
+    CHECK_NOTHROW(lista.elementoNaPosicao(2));
+    CHECK(lista.elementoNaPosicao(2) == "P");
 
-//     CHECK_NOTHROW(lista.elementoNaPosicao(3));
-//     CHECK(lista.elementoNaPosicao(3) == "F");
+    CHECK_NOTHROW(lista.elementoNaPosicao(3));
+    CHECK(lista.elementoNaPosicao(3) == "F");
 
-//     CHECK_NOTHROW(lista.elementoNaPosicao(4));
-//     CHECK(lista.elementoNaPosicao(4) == "C");
+    CHECK_NOTHROW(lista.elementoNaPosicao(4));
+    CHECK(lista.elementoNaPosicao(4) == "C");
 
-//     CHECK_NOTHROW(lista.elementoNaPosicao(5));
-//     CHECK(lista.elementoNaPosicao(5) == "!");
-// }
+    CHECK_NOTHROW(lista.elementoNaPosicao(5));
+    CHECK(lista.elementoNaPosicao(5) == "!");
+}
 
-// TEST_CASE("Acesso à i-ésima posição inválida") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("!");
-//     REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
+TEST_CASE("Acesso à i-ésima posição inválida") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("!");
+    REQUIRE(lista.imprimir() == "{S, P, F, C, !}");
 
-//     CHECK_THROWS_AS(lista.elementoNaPosicao(-1), std::out_of_range);
-//     CHECK_THROWS_AS(lista.elementoNaPosicao( 0), std::out_of_range);
-//     CHECK_THROWS_AS(lista.elementoNaPosicao(lista.tamanho()+1), std::out_of_range);
-//     CHECK_THROWS_AS(lista.elementoNaPosicao(lista.tamanho()+2), std::out_of_range);
-// }
+    CHECK_THROWS_AS(lista.elementoNaPosicao(-1), std::out_of_range);
+    CHECK_THROWS_AS(lista.elementoNaPosicao( 0), std::out_of_range);
+    CHECK_THROWS_AS(lista.elementoNaPosicao(lista.tamanho()+1), std::out_of_range);
+    CHECK_THROWS_AS(lista.elementoNaPosicao(lista.tamanho()+2), std::out_of_range);
+}
 
 // TEST_CASE("removerTodos - Remoção em lista vazia lança exceção") {
 //     Lista lista;
