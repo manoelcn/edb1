@@ -34,33 +34,33 @@ TEST_CASE("inserirFim - insere elementos no final da lista e verifica ordem fina
     REQUIRE(lista.imprimir() == "G<->C<->A<->D<->E<->B<->F<->I<->H<->J");
 }
 
-// TEST_CASE("elementoNaPosicao - acessa elementos pelo índice correto")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     for (auto s : v1)
-//     {
-//         REQUIRE(lista.inserirFim(s));
-//     }
-//     for (size_t i = 0; i < 10; ++i)
-//     {
-//         INFO("Verificando elemento na posição " << (i + 1));
-//         REQUIRE(lista.elementoNaPosicao(i + 1) == v1[i]);
-//     }
-// }
+TEST_CASE("elementoNaPosicao - acessa elementos pelo índice correto")
+{
+    ListaDuplamenteEncadeada lista;
+    for (auto s : v1)
+    {
+        REQUIRE(lista.inserirFim(s));
+    }
+    for (size_t i = 0; i < 10; ++i)
+    {
+        INFO("Verificando elemento na posição " << (i + 1));
+        REQUIRE(lista.elementoNaPosicao(i + 1) == v1[i]);
+    }
+}
 
-// TEST_CASE("elementoNaPosicao - falha para índice inválido (std::out_of_range)")
-// {
-//     ListaDuplamenteEncadeada lista;
+TEST_CASE("elementoNaPosicao - falha para índice inválido (std::out_of_range)")
+{
+    ListaDuplamenteEncadeada lista;
 
-//     CHECK_THROWS_AS(lista.elementoNaPosicao(1), std::out_of_range);
+    CHECK_THROWS_AS(lista.elementoNaPosicao(1), std::out_of_range);
 
-//     for (auto s : v1)
-//     {
-//         lista.inserirFim(s);
-//     }
-//     CHECK_THROWS_AS(lista.elementoNaPosicao(0), std::out_of_range);
-//     CHECK_THROWS_AS(lista.elementoNaPosicao(11), std::out_of_range);
-// }
+    for (auto s : v1)
+    {
+        lista.inserirFim(s);
+    }
+    CHECK_THROWS_AS(lista.elementoNaPosicao(0), std::out_of_range);
+    CHECK_THROWS_AS(lista.elementoNaPosicao(11), std::out_of_range);
+}
 
 // TEST_CASE("inserir - insere elementos em posições válidas e sucessivas")
 // {
