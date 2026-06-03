@@ -313,22 +313,16 @@ int Lista::removerTodos(const std::string &valor)
         {
             if (anterior == nullptr)
             {
-                this->primeiro = atual->proximo;
-                auto excluir = atual;
-                delete excluir;
+                this->removerInicio();
                 atual = this->primeiro;
                 quantidadeNosRemovidos++;
-                this->quantidade--;
                 continue;
             }
             if (atual->proximo == nullptr)
             {
-                this->ultimo = anterior;
-                anterior->proximo = nullptr;
-                auto excluir = atual;
-                delete excluir;
+                this->removerFim();
+                atual = nullptr;  
                 quantidadeNosRemovidos++;
-                this->quantidade--;
                 break;
             }
             anterior->proximo = atual->proximo;
