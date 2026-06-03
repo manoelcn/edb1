@@ -272,207 +272,207 @@ TEST_CASE("Acesso à i-ésima posição inválida") {
     CHECK_THROWS_AS(lista.elementoNaPosicao(lista.tamanho()+2), std::out_of_range);
 }
 
-// TEST_CASE("removerTodos - Remoção em lista vazia lança exceção") {
-//     Lista lista;
-//     CHECK_THROWS_AS(lista.removerTodos("a"), std::out_of_range);
-// }
+TEST_CASE("removerTodos - Remoção em lista vazia lança exceção") {
+    Lista lista;
+    CHECK_THROWS_AS(lista.removerTodos("a"), std::out_of_range);
+}
 
-// TEST_CASE("removerTodos - remove com sucesso de lista com um só elemento") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     REQUIRE(lista.imprimir() == "{S}");
-//     CHECK(lista.tamanho() == 1);
+TEST_CASE("removerTodos - remove com sucesso de lista com um só elemento") {
+    Lista lista;
+    lista.inserirFim("S");
+    REQUIRE(lista.imprimir() == "{S}");
+    CHECK(lista.tamanho() == 1);
 
-//     int removidos = lista.removerTodos("S");
-//     CHECK(removidos == 1);
-//     CHECK(lista.tamanho() == 0);
-//     REQUIRE(lista.imprimir() == "{}");
-//     REQUIRE_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
-//     REQUIRE_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
-// }
+    int removidos = lista.removerTodos("S");
+    CHECK(removidos == 1);
+    CHECK(lista.tamanho() == 0);
+    REQUIRE(lista.imprimir() == "{}");
+    REQUIRE_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
+    REQUIRE_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
+}
 
-// TEST_CASE("removerTodos - tenta remover elemento que não existe de lista com um só elemento") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     REQUIRE(lista.imprimir() == "{S}");
-//     CHECK(lista.tamanho() == 1);
+TEST_CASE("removerTodos - tenta remover elemento que não existe de lista com um só elemento") {
+    Lista lista;
+    lista.inserirFim("S");
+    REQUIRE(lista.imprimir() == "{S}");
+    CHECK(lista.tamanho() == 1);
 
-//     int removidos = lista.removerTodos("X");
-//     CHECK(removidos == 0);
-//     CHECK(lista.tamanho() == 1);
-//     REQUIRE(lista.imprimir() == "{S}");
-//     REQUIRE(lista.primeiroElemento() == "S");
-//     REQUIRE(lista.ultimoElemento() == "S");
-// }
+    int removidos = lista.removerTodos("X");
+    CHECK(removidos == 0);
+    CHECK(lista.tamanho() == 1);
+    REQUIRE(lista.imprimir() == "{S}");
+    REQUIRE(lista.primeiroElemento() == "S");
+    REQUIRE(lista.ultimoElemento() == "S");
+}
 
-// TEST_CASE("removerTodos - tenta remover elemento que não existe de lista com múltiplos elementos") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
-//     CHECK(lista.tamanho() == 8);
+TEST_CASE("removerTodos - tenta remover elemento que não existe de lista com múltiplos elementos") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
+    CHECK(lista.tamanho() == 8);
 
-//     int removidos = lista.removerTodos("X");
-//     CHECK(removidos == 0);
-//     CHECK(lista.tamanho() == 8);
-//     REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
-//     REQUIRE(lista.primeiroElemento() == "S");
-//     REQUIRE(lista.ultimoElemento() == "C");
-// }
+    int removidos = lista.removerTodos("X");
+    CHECK(removidos == 0);
+    CHECK(lista.tamanho() == 8);
+    REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
+    REQUIRE(lista.primeiroElemento() == "S");
+    REQUIRE(lista.ultimoElemento() == "C");
+}
 
-// TEST_CASE("removerTodos - remove todos elementos de lista que tem múltiplos elementos iguais entre si") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     REQUIRE(lista.imprimir() == "{S, S, S, S, S, S, S, S}");
-//     CHECK(lista.tamanho() == 8);
+TEST_CASE("removerTodos - remove todos elementos de lista que tem múltiplos elementos iguais entre si") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    REQUIRE(lista.imprimir() == "{S, S, S, S, S, S, S, S}");
+    CHECK(lista.tamanho() == 8);
 
-//     int removidos = lista.removerTodos("S");
-//     CHECK(removidos == 8);
-//     CHECK(lista.tamanho() == 0);
-//     REQUIRE(lista.imprimir() == "{}");
-//     REQUIRE_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
-//     REQUIRE_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
-// }
+    int removidos = lista.removerTodos("S");
+    CHECK(removidos == 8);
+    CHECK(lista.tamanho() == 0);
+    REQUIRE(lista.imprimir() == "{}");
+    REQUIRE_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
+    REQUIRE_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
+}
 
-// TEST_CASE("removerTodos - remove elementos que estão no fim e lista permanece com elementos") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
-//     CHECK(lista.tamanho() == 8);
+TEST_CASE("removerTodos - remove elementos que estão no fim e lista permanece com elementos") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
+    CHECK(lista.tamanho() == 8);
 
-//     int removidos = lista.removerTodos("C");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 6);
-//     REQUIRE(lista.imprimir() == "{S, S, P, P, F, F}");
-//     REQUIRE(lista.primeiroElemento() == "S");
-//     REQUIRE(lista.ultimoElemento() == "F");
-// }
+    int removidos = lista.removerTodos("C");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 6);
+    REQUIRE(lista.imprimir() == "{S, S, P, P, F, F}");
+    REQUIRE(lista.primeiroElemento() == "S");
+    REQUIRE(lista.ultimoElemento() == "F");
+}
 
-// TEST_CASE("removerTodos - remove elementos que estão no início e lista permanece com elementos") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
-//     CHECK(lista.tamanho() == 8);
+TEST_CASE("removerTodos - remove elementos que estão no início e lista permanece com elementos") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
+    CHECK(lista.tamanho() == 8);
 
-//     int removidos = lista.removerTodos("S");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 6);
-//     REQUIRE(lista.imprimir() == "{P, P, F, F, C, C}");
-//     REQUIRE(lista.primeiroElemento() == "P");
-//     REQUIRE(lista.ultimoElemento() == "C");
-// }
+    int removidos = lista.removerTodos("S");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 6);
+    REQUIRE(lista.imprimir() == "{P, P, F, F, C, C}");
+    REQUIRE(lista.primeiroElemento() == "P");
+    REQUIRE(lista.ultimoElemento() == "C");
+}
 
-// TEST_CASE("removerTodos - remove elementos consecutivos que estão no meio e lista permanece com elementos") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
-//     CHECK(lista.tamanho() == 8);
+TEST_CASE("removerTodos - remove elementos consecutivos que estão no meio e lista permanece com elementos") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, S, P, P, F, F, C, C}");
+    CHECK(lista.tamanho() == 8);
 
-//     int removidos = lista.removerTodos("P");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 6);
-//     REQUIRE(lista.imprimir() == "{S, S, F, F, C, C}");
-//     REQUIRE(lista.primeiroElemento() == "S");
-//     REQUIRE(lista.ultimoElemento() == "C");
-// }
+    int removidos = lista.removerTodos("P");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 6);
+    REQUIRE(lista.imprimir() == "{S, S, F, F, C, C}");
+    REQUIRE(lista.primeiroElemento() == "S");
+    REQUIRE(lista.ultimoElemento() == "C");
+}
 
-// TEST_CASE("removerTodos - remove elementos não-consecutivos que estão no meio e lista permanece com elementos") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, S, P, F, P, F, C, C}");
-//     CHECK(lista.tamanho() == 8);
+TEST_CASE("removerTodos - remove elementos não-consecutivos que estão no meio e lista permanece com elementos") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, S, P, F, P, F, C, C}");
+    CHECK(lista.tamanho() == 8);
 
-//     int removidos = lista.removerTodos("P");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 6);
-//     REQUIRE(lista.imprimir() == "{S, S, F, F, C, C}");
-//     REQUIRE(lista.primeiroElemento() == "S");
-//     REQUIRE(lista.ultimoElemento() == "C");
-// }
+    int removidos = lista.removerTodos("P");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 6);
+    REQUIRE(lista.imprimir() == "{S, S, F, F, C, C}");
+    REQUIRE(lista.primeiroElemento() == "S");
+    REQUIRE(lista.ultimoElemento() == "C");
+}
 
-// TEST_CASE("removerTodos - remove elementos até lista ficar vazia") {
-//     Lista lista;
-//     lista.inserirFim("S");
-//     lista.inserirFim("S");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("P");
-//     lista.inserirFim("F");
-//     lista.inserirFim("C");
-//     lista.inserirFim("C");
-//     REQUIRE(lista.imprimir() == "{S, S, P, F, P, F, C, C}");
-//     CHECK(lista.tamanho() == 8);
+TEST_CASE("removerTodos - remove elementos até lista ficar vazia") {
+    Lista lista;
+    lista.inserirFim("S");
+    lista.inserirFim("S");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("P");
+    lista.inserirFim("F");
+    lista.inserirFim("C");
+    lista.inserirFim("C");
+    REQUIRE(lista.imprimir() == "{S, S, P, F, P, F, C, C}");
+    CHECK(lista.tamanho() == 8);
 
-//     // Remove do meio
-//     int removidos = lista.removerTodos("P");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 6);
-//     REQUIRE(lista.imprimir() == "{S, S, F, F, C, C}");
-//     REQUIRE(lista.primeiroElemento() == "S");
-//     REQUIRE(lista.ultimoElemento() == "C");
+    // Remove do meio
+    int removidos = lista.removerTodos("P");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 6);
+    REQUIRE(lista.imprimir() == "{S, S, F, F, C, C}");
+    REQUIRE(lista.primeiroElemento() == "S");
+    REQUIRE(lista.ultimoElemento() == "C");
 
-//     // Remove do fim
-//     removidos = lista.removerTodos("C");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 4);
-//     REQUIRE(lista.imprimir() == "{S, S, F, F}");
-//     REQUIRE(lista.primeiroElemento() == "S");
-//     REQUIRE(lista.ultimoElemento() == "F");
+    // Remove do fim
+    removidos = lista.removerTodos("C");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 4);
+    REQUIRE(lista.imprimir() == "{S, S, F, F}");
+    REQUIRE(lista.primeiroElemento() == "S");
+    REQUIRE(lista.ultimoElemento() == "F");
 
-//     // Remove do início
-//     removidos = lista.removerTodos("S");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 2);
-//     REQUIRE(lista.imprimir() == "{F, F}");
-//     REQUIRE(lista.primeiroElemento() == "F");
-//     REQUIRE(lista.ultimoElemento() == "F");
+    // Remove do início
+    removidos = lista.removerTodos("S");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 2);
+    REQUIRE(lista.imprimir() == "{F, F}");
+    REQUIRE(lista.primeiroElemento() == "F");
+    REQUIRE(lista.ultimoElemento() == "F");
 
-//     // Remove do início
-//     removidos = lista.removerTodos("F");
-//     CHECK(removidos == 2);
-//     CHECK(lista.tamanho() == 0);
-//     REQUIRE(lista.imprimir() == "{}");
-//     REQUIRE_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
-//     REQUIRE_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
-// }
+    // Remove do início
+    removidos = lista.removerTodos("F");
+    CHECK(removidos == 2);
+    CHECK(lista.tamanho() == 0);
+    REQUIRE(lista.imprimir() == "{}");
+    REQUIRE_THROWS_AS(lista.primeiroElemento(), std::out_of_range);
+    REQUIRE_THROWS_AS(lista.ultimoElemento(), std::out_of_range);
+}
