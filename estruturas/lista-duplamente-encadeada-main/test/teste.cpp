@@ -62,69 +62,69 @@ TEST_CASE("elementoNaPosicao - falha para índice inválido (std::out_of_range)"
     CHECK_THROWS_AS(lista.elementoNaPosicao(11), std::out_of_range);
 }
 
-// TEST_CASE("inserir - insere elementos em posições válidas e sucessivas")
-// {
-//     ListaDuplamenteEncadeada lista;
+TEST_CASE("inserir - insere elementos em posições válidas e sucessivas")
+{
+    ListaDuplamenteEncadeada lista;
 
-//     lista.inserir(1, "S");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "S");
+    lista.inserir(1, "S");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "S");
 
-//     lista.inserir(2, "P");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "S<->P");
+    lista.inserir(2, "P");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "S<->P");
 
-//     lista.inserir(3, "F");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "S<->P<->F");
+    lista.inserir(3, "F");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "S<->P<->F");
 
-//     lista.inserir(4, "C");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "S<->P<->F<->C");
-// }
+    lista.inserir(4, "C");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "S<->P<->F<->C");
+}
 
-// TEST_CASE("inserir - insere elementos em posições válidas e alternadas")
-// {
-//     ListaDuplamenteEncadeada lista;
+TEST_CASE("inserir - insere elementos em posições válidas e alternadas")
+{
+    ListaDuplamenteEncadeada lista;
 
-//     // preparação
-//     lista.inserir(1, "S");
-//     lista.inserir(2, "P");
-//     lista.inserir(3, "F");
-//     lista.inserir(4, "C");
-//     REQUIRE(lista.imprimir() == "S<->P<->F<->C");
+    // preparação
+    lista.inserir(1, "S");
+    lista.inserir(2, "P");
+    lista.inserir(3, "F");
+    lista.inserir(4, "C");
+    REQUIRE(lista.imprimir() == "S<->P<->F<->C");
 
-//     lista.inserir(1, "O");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "O<->S<->P<->F<->C");
+    lista.inserir(1, "O");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "O<->S<->P<->F<->C");
 
-//     lista.inserir(3, ".");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "O<->S<->.<->P<->F<->C");
+    lista.inserir(3, ".");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "O<->S<->.<->P<->F<->C");
 
-//     lista.inserir(5, ".");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "O<->S<->.<->P<->.<->F<->C");
+    lista.inserir(5, ".");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "O<->S<->.<->P<->.<->F<->C");
 
-//     lista.inserir(7, ".");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "O<->S<->.<->P<->.<->F<->.<->C");
+    lista.inserir(7, ".");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "O<->S<->.<->P<->.<->F<->.<->C");
 
-//     lista.inserir(9, ".");
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "O<->S<->.<->P<->.<->F<->.<->C<->.");
-// }
+    lista.inserir(9, ".");
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "O<->S<->.<->P<->.<->F<->.<->C<->.");
+}
 
-// TEST_CASE("inserir - falha para posição inválida (std::out_of_range)")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     CHECK_THROWS_AS(lista.inserir(2, "X"), std::out_of_range); // lista vazia
-//     CHECK(lista.inserir(1, "A"));
-//     REQUIRE(lista.checarConsistencia() == OK);
-//     REQUIRE(lista.imprimir() == "A");
-//     CHECK_THROWS_AS(lista.inserir(0, "B"), std::out_of_range);  // posição 0 inválida
-//     CHECK_THROWS_AS(lista.inserir(-1, "B"), std::out_of_range); // posição > tamanho+1 inválida
-// }
+TEST_CASE("inserir - falha para posição inválida (std::out_of_range)")
+{
+    ListaDuplamenteEncadeada lista;
+    CHECK_THROWS_AS(lista.inserir(2, "X"), std::out_of_range); // lista vazia
+    CHECK(lista.inserir(1, "A"));
+    REQUIRE(lista.checarConsistencia() == OK);
+    REQUIRE(lista.imprimir() == "A");
+    CHECK_THROWS_AS(lista.inserir(0, "B"), std::out_of_range);  // posição 0 inválida
+    CHECK_THROWS_AS(lista.inserir(-1, "B"), std::out_of_range); // posição > tamanho+1 inválida
+}
 
 // TEST_CASE("removerInicio - remove elementos do início e verifica vazio final")
 // {

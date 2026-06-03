@@ -187,7 +187,33 @@ bool ListaDuplamenteEncadeada::inserirFim(std::string s)
  */
 bool ListaDuplamenteEncadeada::inserir(int i, std::string s)
 {
-    throw "ERRO: ainda não foi implementado.";
+    if (i < 1 || i > this->quantidade + 1)
+    {
+        throw std::out_of_range("Índice inválido");
+    }
+    if (i == 1)
+    {
+        return this->inserirInicio(s);
+    }
+    else if (i == quantidade + 1)
+    {
+        return this->inserirFim(s);
+    }
+    else
+    {
+        auto atual = cabeca->proximo;
+        for (int j = 1; j < i; j++)
+        {
+            atual = atual->proximo;
+        }
+        No<std::string> *novo = new No(s);
+        novo->proximo = atual;
+        novo->anterior = atual->anterior;
+        atual->anterior->proximo = novo;
+        atual->anterior = novo;
+        this->quantidade++;
+        return true;
+    }
 }
 
 /**
