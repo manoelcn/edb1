@@ -116,7 +116,16 @@ bool ListaDuplamenteEncadeada::vazia() const
  */
 const std::string ListaDuplamenteEncadeada::elementoNaPosicao(int i) const
 {
-    throw "ERRO: ainda não foi implementado.";
+    if (i < 1 || i > this->quantidade)
+    {
+        throw std::out_of_range("Índice inválido");
+    }
+    auto atual = cabeca->proximo;
+    for (int j = 1; j < i; j++)
+    {
+        atual = atual->proximo;
+    }
+    return atual->valor;
 }
 
 /**
