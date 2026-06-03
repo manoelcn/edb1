@@ -299,7 +299,50 @@ std::string Lista::imprimir() const
  */
 int Lista::removerTodos(const std::string &valor)
 {
-    throw std::runtime_error("Ainda não foi implementado.");
+    if (this->quantidade == 0)
+    {
+        throw std::out_of_range("Lista Vazia.");
+    }
+
+    auto atual = this->primeiro;
+    Lista::No *anterior = nullptr;
+    int quantidadeNosRemovidos = 0;
+    while (atual != nullptr)
+    {
+        if (atual->valor == valor)
+        {
+            if (anterior == nullptr)
+            {
+                this->primeiro = atual->proximo;
+                auto excluir = atual;
+                delete excluir;
+                atual = this->primeiro;
+                quantidadeNosRemovidos++;
+                this->quantidade--;
+                continue;
+            }
+            if (atual->proximo == nullptr)
+            {
+                this->ultimo = anterior;
+                anterior->proximo = nullptr;
+                auto excluir = atual;
+                delete excluir;
+                quantidadeNosRemovidos++;
+                this->quantidade--;
+                break;
+            }
+            anterior->proximo = atual->proximo;
+            auto excluir = atual;
+            delete excluir;
+            atual = anterior->proximo;
+            quantidadeNosRemovidos++;
+            this->quantidade--;
+            continue;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    return quantidadeNosRemovidos;
 }
 
 Lista::No::No(std::string valor)
