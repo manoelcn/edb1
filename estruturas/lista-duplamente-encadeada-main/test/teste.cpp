@@ -182,39 +182,39 @@ TEST_CASE("removerFim - falha em lista vazia (std::out_of_range)")
     CHECK_THROWS_AS(lista.removerFim(), std::out_of_range);
 }
 
-// TEST_CASE("remover - falha para posição inválida (std::out_of_range)")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     CHECK_THROWS_AS(lista.remover(1), std::out_of_range); // lista vazia
-//     lista.inserirInicio("A");
-//     CHECK_THROWS_AS(lista.remover(0), std::out_of_range);
-//     CHECK_THROWS_AS(lista.remover(2), std::out_of_range);
-// }
+TEST_CASE("remover - falha para posição inválida (std::out_of_range)")
+{
+    ListaDuplamenteEncadeada lista;
+    CHECK_THROWS_AS(lista.remover(1), std::out_of_range); // lista vazia
+    lista.inserirInicio("A");
+    CHECK_THROWS_AS(lista.remover(0), std::out_of_range);
+    CHECK_THROWS_AS(lista.remover(2), std::out_of_range);
+}
 
-// TEST_CASE("remover - remove elementos do meio até a lista ficar vazia")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     for (auto s : v1)
-//     {
-//         lista.inserirFim(s);
-//     }
+TEST_CASE("remover - remove elementos do meio até a lista ficar vazia")
+{
+    ListaDuplamenteEncadeada lista;
+    for (auto s : v1)
+    {
+        lista.inserirFim(s);
+    }
 
-//     while (lista.tamanho() > 0)
-//     {
-//         REQUIRE(lista.checarConsistencia() == OK);
-//         int tamanhoAntes = lista.tamanho();
-//         int indiceMeio = (tamanhoAntes / 2) + (tamanhoAntes % 2 == 0 ? 0 : 1);
-//         auto esperado = lista.elementoNaPosicao(indiceMeio);
-//         auto removido = lista.remover(indiceMeio);
-//         CAPTURE(indiceMeio);
-//         CAPTURE(esperado);
-//         CAPTURE(removido);
-//         REQUIRE(removido == esperado);
-//         REQUIRE(lista.tamanho() == tamanhoAntes - 1);
-//     }
-//     REQUIRE(lista.tamanho() == 0);
-//     REQUIRE(lista.imprimir() == "{}");
-// }
+    while (lista.tamanho() > 0)
+    {
+        REQUIRE(lista.checarConsistencia() == OK);
+        int tamanhoAntes = lista.tamanho();
+        int indiceMeio = (tamanhoAntes / 2) + (tamanhoAntes % 2 == 0 ? 0 : 1);
+        auto esperado = lista.elementoNaPosicao(indiceMeio);
+        auto removido = lista.remover(indiceMeio);
+        CAPTURE(indiceMeio);
+        CAPTURE(esperado);
+        CAPTURE(removido);
+        REQUIRE(removido == esperado);
+        REQUIRE(lista.tamanho() == tamanhoAntes - 1);
+    }
+    REQUIRE(lista.tamanho() == 0);
+    REQUIRE(lista.imprimir() == "{}");
+}
 
 // TEST_CASE("buscar - busca elementos existentes e inexistentes")
 // {

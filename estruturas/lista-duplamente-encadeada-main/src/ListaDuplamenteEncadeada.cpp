@@ -294,7 +294,29 @@ std::string ListaDuplamenteEncadeada::removerFim()
  */
 std::string ListaDuplamenteEncadeada::remover(int i)
 {
-    throw "ERRO: ainda não foi implementado.";
+    if (i < 1 || i > this->quantidade)
+    {
+        throw std::out_of_range("Índice inválido");
+    }
+    if (i == 1)
+    {
+        return this->removerInicio();
+    }
+    if (i == this->quantidade)
+    {
+        return this->removerFim();
+    }
+    auto atual = cabeca->proximo;
+    for (int j = 1; j < i; j++)
+    {
+        atual = atual->proximo;
+    }
+    auto valor_atual = atual->valor;
+    atual->proximo->anterior = atual->anterior;
+    atual->anterior->proximo = atual->proximo;
+    delete atual;
+    this->quantidade--;
+    return valor_atual;
 }
 
 /**
