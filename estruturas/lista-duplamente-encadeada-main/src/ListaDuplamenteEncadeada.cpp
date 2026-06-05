@@ -136,7 +136,18 @@ const std::string ListaDuplamenteEncadeada::elementoNaPosicao(int i) const
  */
 int ListaDuplamenteEncadeada::buscar(std::string s) const
 {
-    throw "ERRO: ainda não foi implementado.";
+    int posicao = 1;
+    auto atual = cabeca->proximo;
+    while (atual->valor != s)
+    {
+        if (atual->proximo == nullptr)
+        {
+            return -1;
+        }
+        atual = atual->proximo;
+        posicao++;
+    }
+    return posicao;
 }
 
 /**

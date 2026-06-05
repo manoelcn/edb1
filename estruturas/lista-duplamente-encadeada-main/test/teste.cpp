@@ -216,28 +216,28 @@ TEST_CASE("remover - remove elementos do meio até a lista ficar vazia")
     REQUIRE(lista.imprimir() == "{}");
 }
 
-// TEST_CASE("buscar - busca elementos existentes e inexistentes")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     for (auto s : v1)
-//     {
-//         lista.inserirFim(s);
-//     }
+TEST_CASE("buscar - busca elementos existentes e inexistentes")
+{
+    ListaDuplamenteEncadeada lista;
+    for (auto s : v1)
+    {
+        lista.inserirFim(s);
+    }
 
-//     for (int i = 0; i < 10; ++i)
-//     {
-//         REQUIRE(lista.checarConsistencia() == OK);
-//         CAPTURE(v1[i]);
-//         REQUIRE(lista.buscar(v1[i]) == i + 1);
-//     }
+    for (int i = 0; i < 10; ++i)
+    {
+        REQUIRE(lista.checarConsistencia() == OK);
+        CAPTURE(v1[i]);
+        REQUIRE(lista.buscar(v1[i]) == i + 1);
+    }
 
-//     std::string inexistentes[] = {"0", "50", "100", "200"};
-//     for (auto s : inexistentes)
-//     {
-//         REQUIRE(lista.checarConsistencia() == OK);
-//         REQUIRE(lista.buscar(s) == -1);
-//     }
-// }
+    std::string inexistentes[] = {"0", "50", "100", "200"};
+    for (auto s : inexistentes)
+    {
+        REQUIRE(lista.checarConsistencia() == OK);
+        REQUIRE(lista.buscar(s) == -1);
+    }
+}
 
 // TEST_CASE("inserirAntes - inserir em diferentes posições e casos inválidos")
 // {
