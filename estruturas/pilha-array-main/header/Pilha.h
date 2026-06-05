@@ -49,7 +49,7 @@ public:
     {
         if (this->quantidade == 0)
         {
-            throw std::overflow_error("Pilha vazia");
+            throw std::underflow_error("Pilha vazia");
         }
 
         return this->elementos[this->quantidade - 1];
@@ -71,7 +71,7 @@ public:
     {
         if (this->quantidade == 0)
         {
-            throw std::overflow_error("Pilha vazia");
+            throw std::underflow_error("Pilha vazia");
         }
 
         this->quantidade--;
