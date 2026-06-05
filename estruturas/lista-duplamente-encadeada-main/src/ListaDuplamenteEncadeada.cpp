@@ -249,7 +249,18 @@ bool ListaDuplamenteEncadeada::inserirOrdenado(std::string s)
  */
 std::string ListaDuplamenteEncadeada::removerInicio()
 {
-    throw "ERRO: ainda não foi implementado.";
+    if (this->quantidade == 0)
+    {
+        throw std::out_of_range("Lista vazia");
+    }
+
+    auto primeiro = this->cabeca->proximo;
+    auto valor_primeiro = primeiro->valor;
+    this->cabeca->proximo = primeiro->proximo;
+    this->cabeca->proximo->anterior = this->cabeca;
+    delete primeiro;
+    this->quantidade--;
+    return valor_primeiro;
 }
 
 /**

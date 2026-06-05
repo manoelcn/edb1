@@ -126,32 +126,32 @@ TEST_CASE("inserir - falha para posição inválida (std::out_of_range)")
     CHECK_THROWS_AS(lista.inserir(-1, "B"), std::out_of_range); // posição > tamanho+1 inválida
 }
 
-// TEST_CASE("removerInicio - remove elementos do início e verifica vazio final")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     for (auto s : v1)
-//         lista.inserirInicio(s);
+TEST_CASE("removerInicio - remove elementos do início e verifica vazio final")
+{
+    ListaDuplamenteEncadeada lista;
+    for (auto s : v1)
+        lista.inserirInicio(s);
 
-//     for (int i = 0; i < 10; ++i)
-//     {
-//         REQUIRE(lista.checarConsistencia() == OK);
-//         int tamanhoAntes = lista.tamanho();
-//         auto removido = lista.removerInicio();
-//         CAPTURE(i);
-//         CAPTURE(removido);
-//         REQUIRE(removido == v1[9 - i]);
-//         REQUIRE(lista.tamanho() == tamanhoAntes - 1);
-//     }
+    for (int i = 0; i < 10; ++i)
+    {
+        REQUIRE(lista.checarConsistencia() == OK);
+        int tamanhoAntes = lista.tamanho();
+        auto removido = lista.removerInicio();
+        CAPTURE(i);
+        CAPTURE(removido);
+        REQUIRE(removido == v1[9 - i]);
+        REQUIRE(lista.tamanho() == tamanhoAntes - 1);
+    }
 
-//     REQUIRE(lista.tamanho() == 0);
-//     REQUIRE(lista.imprimir() == "{}");
-// }
+    REQUIRE(lista.tamanho() == 0);
+    REQUIRE(lista.imprimir() == "{}");
+}
 
-// TEST_CASE("removerInicio - falha em lista vazia (std::out_of_range)")
-// {
-//     ListaDuplamenteEncadeada lista;
-//     CHECK_THROWS_AS(lista.removerInicio(), std::out_of_range);
-// }
+TEST_CASE("removerInicio - falha em lista vazia (std::out_of_range)")
+{
+    ListaDuplamenteEncadeada lista;
+    CHECK_THROWS_AS(lista.removerInicio(), std::out_of_range);
+}
 
 // TEST_CASE("removerFim - remove elementos do final e verifica vazio final")
 // {
