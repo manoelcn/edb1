@@ -140,7 +140,7 @@ int ListaDuplamenteEncadeada::buscar(std::string s) const
     auto atual = cabeca->proximo;
     while (atual->valor != s)
     {
-        if (atual->proximo == nullptr)
+        if (atual == cauda)
         {
             return -1;
         }
@@ -237,7 +237,7 @@ bool ListaDuplamenteEncadeada::inserir(int i, std::string s)
  */
 bool ListaDuplamenteEncadeada::inserirAntes(std::string novoElemento, std::string referencia)
 {
-    throw "ERRO: ainda não foi implementado.";
+    
 }
 
 /**
