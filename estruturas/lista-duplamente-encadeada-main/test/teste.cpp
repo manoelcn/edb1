@@ -239,52 +239,52 @@ TEST_CASE("buscar - busca elementos existentes e inexistentes")
     }
 }
 
-// TEST_CASE("inserirAntes - inserir em diferentes posições e casos inválidos")
-// {
-//     ListaDuplamenteEncadeada lista;
+TEST_CASE("inserirAntes - inserir em diferentes posições e casos inválidos")
+{
+    ListaDuplamenteEncadeada lista;
 
-//     // 1. Tentar inserirAntes numa lista vazia deve retornar false
-//     CHECK_FALSE(lista.inserirAntes("X", "Y"));
-//     REQUIRE(lista.vazia());
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 1. Tentar inserirAntes numa lista vazia deve retornar false
+    CHECK_FALSE(lista.inserirAntes("X", "Y"));
+    REQUIRE(lista.vazia());
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // Preparar lista com 3 elementos: ["A", "B", "C"]
-//     CHECK(lista.inserirFim("A"));
-//     CHECK(lista.inserirFim("B"));
-//     CHECK(lista.inserirFim("C"));
-//     REQUIRE(lista.tamanho() == 3);
-//     REQUIRE(lista.imprimir() == "A<->B<->C");
+    // Preparar lista com 3 elementos: ["A", "B", "C"]
+    CHECK(lista.inserirFim("A"));
+    CHECK(lista.inserirFim("B"));
+    CHECK(lista.inserirFim("C"));
+    REQUIRE(lista.tamanho() == 3);
+    REQUIRE(lista.imprimir() == "A<->B<->C");
 
-//     // 2. Tentar inserirAntes antes de um elemento que não existe deve retornar false
-//     CHECK_FALSE(lista.inserirAntes("X", "Y"));
-//     REQUIRE(lista.tamanho() == 3);
-//     REQUIRE(lista.imprimir() == "A<->B<->C");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 2. Tentar inserirAntes antes de um elemento que não existe deve retornar false
+    CHECK_FALSE(lista.inserirAntes("X", "Y"));
+    REQUIRE(lista.tamanho() == 3);
+    REQUIRE(lista.imprimir() == "A<->B<->C");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 3. Inserir antes do primeiro nó ("A")
-//     CHECK(lista.inserirAntes("X", "A")); // ["X", "A", "B", "C"]
-//     REQUIRE(lista.tamanho() == 4);
-//     REQUIRE(lista.imprimir() == "X<->A<->B<->C");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 3. Inserir antes do primeiro nó ("A")
+    CHECK(lista.inserirAntes("X", "A")); // ["X", "A", "B", "C"]
+    REQUIRE(lista.tamanho() == 4);
+    REQUIRE(lista.imprimir() == "X<->A<->B<->C");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 4. Inserir antes do último nó ("C")
-//     CHECK(lista.inserirAntes("Y", "C")); // ["X", "A", "B", "Y", "C"]
-//     REQUIRE(lista.tamanho() == 5);
-//     REQUIRE(lista.imprimir() == "X<->A<->B<->Y<->C");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 4. Inserir antes do último nó ("C")
+    CHECK(lista.inserirAntes("Y", "C")); // ["X", "A", "B", "Y", "C"]
+    REQUIRE(lista.tamanho() == 5);
+    REQUIRE(lista.imprimir() == "X<->A<->B<->Y<->C");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 5. Inserir antes de um nó intermediário ("B")
-//     CHECK(lista.inserirAntes("Z", "B")); // ["X", "A", "Z", "B", "Y", "C"]
-//     REQUIRE(lista.tamanho() == 6);
-//     REQUIRE(lista.imprimir() == "X<->A<->Z<->B<->Y<->C");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 5. Inserir antes de um nó intermediário ("B")
+    CHECK(lista.inserirAntes("Z", "B")); // ["X", "A", "Z", "B", "Y", "C"]
+    REQUIRE(lista.tamanho() == 6);
+    REQUIRE(lista.imprimir() == "X<->A<->Z<->B<->Y<->C");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 6. Repetição do teste: tentar inserir antes de um elemento inexistente novamente
-//     CHECK_FALSE(lista.inserirAntes("Q", "W"));
-//     REQUIRE(lista.imprimir() == "X<->A<->Z<->B<->Y<->C");
-//     REQUIRE(lista.tamanho() == 6);
-//     REQUIRE(lista.checarConsistencia() == OK);
-// }
+    // 6. Repetição do teste: tentar inserir antes de um elemento inexistente novamente
+    CHECK_FALSE(lista.inserirAntes("Q", "W"));
+    REQUIRE(lista.imprimir() == "X<->A<->Z<->B<->Y<->C");
+    REQUIRE(lista.tamanho() == 6);
+    REQUIRE(lista.checarConsistencia() == OK);
+}
 
 // TEST_CASE("inserirOrdenado - inserir em diferentes posições")
 // {

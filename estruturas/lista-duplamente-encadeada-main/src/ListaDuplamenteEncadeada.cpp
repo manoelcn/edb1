@@ -237,7 +237,23 @@ bool ListaDuplamenteEncadeada::inserir(int i, std::string s)
  */
 bool ListaDuplamenteEncadeada::inserirAntes(std::string novoElemento, std::string referencia)
 {
-    
+    auto posicaoReferencia = this->buscar(referencia);
+    if (posicaoReferencia == -1)
+    {
+        return false;
+    }
+    auto atual = cabeca->proximo;
+    for (int i = 1; i < posicaoReferencia; i++)
+    {
+        atual = atual->proximo;
+    }
+    No<std::string> *novo = new No(novoElemento);
+    novo->proximo = atual;
+    novo->anterior = atual->anterior;
+    atual->anterior->proximo = novo;
+    atual->anterior = novo;
+    this->quantidade++;
+    return true;
 }
 
 /**
