@@ -286,41 +286,41 @@ TEST_CASE("inserirAntes - inserir em diferentes posições e casos inválidos")
     REQUIRE(lista.checarConsistencia() == OK);
 }
 
-// TEST_CASE("inserirOrdenado - inserir em diferentes posições")
-// {
-//     ListaDuplamenteEncadeada lista;
+TEST_CASE("inserirOrdenado - inserir em diferentes posições")
+{
+    ListaDuplamenteEncadeada lista;
 
-//     // 1. Inserir em lista vazia retorna true
-//     CHECK(lista.inserirOrdenado("M")); // Lista: ["M"]
-//     REQUIRE(lista.tamanho() == 1);
-//     REQUIRE(lista.imprimir() == "M");
-//     REQUIRE(lista.primeiroElemento() == "M");
-//     REQUIRE(lista.ultimoElemento() == "M");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 1. Inserir em lista vazia retorna true
+    CHECK(lista.inserirOrdenado("M")); // Lista: ["M"]
+    REQUIRE(lista.tamanho() == 1);
+    REQUIRE(lista.imprimir() == "M");
+    REQUIRE(lista.primeiroElemento() == "M");
+    REQUIRE(lista.ultimoElemento() == "M");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 2. Inserir no início da lista (valor maior) retorna true
-//     CHECK(lista.inserirOrdenado("Z")); // Lista: ["Z", "M"]
-//     REQUIRE(lista.tamanho() == 2);
-//     REQUIRE(lista.imprimir() == "Z<->M");
-//     REQUIRE(lista.primeiroElemento() == "Z");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 2. Inserir no início da lista (valor maior) retorna true
+    CHECK(lista.inserirOrdenado("Z")); // Lista: ["Z", "M"]
+    REQUIRE(lista.tamanho() == 2);
+    REQUIRE(lista.imprimir() == "Z<->M");
+    REQUIRE(lista.primeiroElemento() == "Z");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 3. Inserir no final da lista (valor menor) retorna true
-//     CHECK(lista.inserirOrdenado("A")); // Lista: ["Z", "M", "A"]
-//     REQUIRE(lista.tamanho() == 3);
-//     REQUIRE(lista.imprimir() == "Z<->M<->A");
-//     REQUIRE(lista.ultimoElemento() == "A");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 3. Inserir no final da lista (valor menor) retorna true
+    CHECK(lista.inserirOrdenado("A")); // Lista: ["Z", "M", "A"]
+    REQUIRE(lista.tamanho() == 3);
+    REQUIRE(lista.imprimir() == "Z<->M<->A");
+    REQUIRE(lista.ultimoElemento() == "A");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 4. Inserir no meio da lista retorna true
-//     CHECK(lista.inserirOrdenado("F")); // Lista: ["Z", "M", "F", "A"]
-//     REQUIRE(lista.tamanho() == 4);
-//     REQUIRE(lista.imprimir() == "Z<->M<->F<->A");
-//     REQUIRE(lista.checarConsistencia() == OK);
+    // 4. Inserir no meio da lista retorna true
+    CHECK(lista.inserirOrdenado("F")); // Lista: ["Z", "M", "F", "A"]
+    REQUIRE(lista.tamanho() == 4);
+    REQUIRE(lista.imprimir() == "Z<->M<->F<->A");
+    REQUIRE(lista.checarConsistencia() == OK);
 
-//     // 5. Inserir duplicata (valor já existente) retorna false e não altera a lista
-//     CHECK_FALSE(lista.inserirOrdenado("F")); // Lista permanece igual
-//     REQUIRE(lista.tamanho() == 4);
-//     REQUIRE(lista.imprimir() == "Z<->M<->F<->A");
-//     REQUIRE(lista.checarConsistencia() == OK);
-// }
+    // 5. Inserir duplicata (valor já existente) retorna false e não altera a lista
+    CHECK_FALSE(lista.inserirOrdenado("F")); // Lista permanece igual
+    REQUIRE(lista.tamanho() == 4);
+    REQUIRE(lista.imprimir() == "Z<->M<->F<->A");
+    REQUIRE(lista.checarConsistencia() == OK);
+}

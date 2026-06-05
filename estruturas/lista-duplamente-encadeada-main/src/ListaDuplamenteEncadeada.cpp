@@ -266,7 +266,21 @@ bool ListaDuplamenteEncadeada::inserirAntes(std::string novoElemento, std::strin
  */
 bool ListaDuplamenteEncadeada::inserirOrdenado(std::string s)
 {
-    throw "ERRO: ainda não foi implementado.";
+    if (this->buscar(s) != -1)
+    {
+        return false;
+    }
+
+    auto atual = cabeca->proximo;
+    while (s < atual->valor)
+    {
+        if (atual == cauda)
+        {
+            return this->inserirFim(s);
+        }
+        atual = atual->proximo;
+    }
+    return this->inserirAntes(s, atual->valor);
 }
 
 /**
