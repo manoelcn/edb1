@@ -270,7 +270,18 @@ std::string ListaDuplamenteEncadeada::removerInicio()
  */
 std::string ListaDuplamenteEncadeada::removerFim()
 {
-    throw "ERRO: ainda não foi implementado.";
+    if (this->quantidade == 0)
+    {
+        throw std::out_of_range("Lista vazia");
+    }
+
+    auto ultimo = this->cauda->anterior;
+    auto valor_ultimo = ultimo->valor;
+    this->cauda->anterior = ultimo->anterior;
+    this->cauda->anterior->proximo = this->cauda;
+    delete ultimo;
+    this->quantidade--;
+    return valor_ultimo;
 }
 
 /**
