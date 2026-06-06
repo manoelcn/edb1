@@ -13,12 +13,12 @@ template <typename T>
 class Fila
 {
 private:
-    T* elementos;
+    T *elementos;
     int capacidade;
     int quantidade;
     int inicio;
     int fim;
-    
+
 public:
     Fila(int cap)
     {
@@ -28,12 +28,12 @@ public:
         this->capacidade = cap;
         this->elementos = new T[this->capacidade];
     }
-    
+
     ~Fila()
     {
-        delete [] this->elementos;
+        delete[] this->elementos;
     }
-    
+
     int tamanho()
     {
         return this->quantidade;
@@ -41,10 +41,18 @@ public:
 
     T frente()
     {
+        return this->elementos[this->inicio];
     }
 
     void enfileirar(T elemento)
     {
+        if (cheia() == true)
+        {
+            throw std::overflow_error("Lista cheia");
+        }
+        this->elementos[this->fim] = elemento;
+        this->fim = (this->fim + 1) % this->capacidade;
+        this->quantidade++;
     }
 
     T desenfileirar()
@@ -67,7 +75,8 @@ public:
         resultado << "{ ";
         int i = this->inicio;
         int count = 0;
-        while (count < this->quantidade) {
+        while (count < this->quantidade)
+        {
             resultado << this->elementos[i] << " ";
             i = (i + 1) % this->capacidade;
             ++count;

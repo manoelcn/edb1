@@ -10,15 +10,15 @@ TEST_CASE("Fila - Tamanho inicial deve ser zero") {
     CHECK_FALSE(fila.cheia());
 }
 
-// TEST_CASE("Fila - Enfileirar elementos até a capacidade máxima") {
-//     Fila<int> fila(3);
-//     fila.enfileirar(10);
-//     fila.enfileirar(20);
-//     fila.enfileirar(30);
-//     CHECK(fila.tamanho() == 3);
-//     CHECK(fila.cheia());
-//     CHECK(fila.frente() == 10);
-// }
+TEST_CASE("Fila - Enfileirar elementos até a capacidade máxima") {
+    Fila<int> fila(3);
+    fila.enfileirar(10);
+    fila.enfileirar(20);
+    fila.enfileirar(30);
+    CHECK(fila.tamanho() == 3);
+    CHECK(fila.cheia());
+    CHECK(fila.frente() == 10);
+}
 
 // TEST_CASE("Fila - Enfileirar além da capacidade deve lançar exceção") {
 //     Fila<int> fila(2);
