@@ -41,6 +41,11 @@ public:
 
     T frente()
     {
+        if (this->quantidade == 0)
+        {
+            throw std::underflow_error("Lista vazia");
+        }
+
         return this->elementos[this->inicio];
     }
 
@@ -57,6 +62,14 @@ public:
 
     T desenfileirar()
     {
+        if (this->quantidade == 0)
+        {
+            throw std::underflow_error("Lista vazia");
+        }
+        auto valor_elemento = this->elementos[this->inicio];
+        this->inicio = (this->inicio + 1) % this->capacidade;
+        this->quantidade--;
+        return valor_elemento;
     }
 
     bool cheia()
