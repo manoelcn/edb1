@@ -15,7 +15,7 @@ template <typename T>
 class Deque
 {
 private:
-    T* elementos;
+    T *elementos;
     int capacidade;
     int quantidade;
     int frente;
@@ -57,6 +57,13 @@ public:
 
     void empurrarAtras(T elemento)
     {
+        if (this->cheia() == true)
+        {
+            throw std::overflow_error("Deque cheio.");
+        }
+        this->elementos[this->atras] = elemento;
+        this->atras = (this->atras + 1) % this->capacidade;
+        this->quantidade++;
     }
 
     T removerFrente()
@@ -69,10 +76,12 @@ public:
 
     T daFrente() const
     {
+        return this->elementos[this->frente];
     }
 
     T deTras() const
     {
+        return this->elementos[(this->atras - 1 + this->capacidade) % this->capacidade];
     }
 
     std::string imprimir() const

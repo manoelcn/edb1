@@ -10,23 +10,23 @@ TEST_CASE("Deque - Tamanho inicial deve ser zero") {
     CHECK_FALSE(deque.cheia());
 }
 
-// TEST_CASE("Deque - Empurrar elementos atrás até a capacidade máxima (back)") {
-//     Deque<int> deque(3);
-//     deque.empurrarAtras(10); // frente { 10 } trás
-//     deque.empurrarAtras(20); // frente { 10 20 } trás
-//     deque.empurrarAtras(30); // frente { 10 20 30 } trás
-//     CHECK(deque.tamanho() == 3);
-//     CHECK(deque.cheia());
-//     CHECK(deque.daFrente() == 10);
-//     CHECK(deque.deTras() == 30);
-// }
+TEST_CASE("Deque - Empurrar elementos atrás até a capacidade máxima (back)") {
+    Deque<int> deque(3);
+    deque.empurrarAtras(10); // frente { 10 } trás
+    deque.empurrarAtras(20); // frente { 10 20 } trás
+    deque.empurrarAtras(30); // frente { 10 20 30 } trás
+    CHECK(deque.tamanho() == 3);
+    CHECK(deque.cheia());
+    CHECK(deque.daFrente() == 10);
+    CHECK(deque.deTras() == 30);
+}
 
-// TEST_CASE("Deque - Empurrar elementos atrás além da capacidade deve lançar exceção") {
-//     Deque<int> deque(2);
-//     deque.empurrarAtras(1);
-//     deque.empurrarAtras(2);
-//     CHECK_THROWS_AS(deque.empurrarAtras(3), std::overflow_error);
-// }
+TEST_CASE("Deque - Empurrar elementos atrás além da capacidade deve lançar exceção") {
+    Deque<int> deque(2);
+    deque.empurrarAtras(1);
+    deque.empurrarAtras(2);
+    CHECK_THROWS_AS(deque.empurrarAtras(3), std::overflow_error);
+}
 
 // TEST_CASE("Deque - Empurrar elementos na frente até a capacidade máxima") {
 //     Deque<int> deque(3);
