@@ -24,7 +24,45 @@ void ListaEncadeada::inserirNoInicio(int e){auto n = new No<int>(e);if( inicio =
 
 int ListaEncadeada::removerTodos(int val) 
 {
-    throw "ERRO: 'removerTodos' ainda não foi implementado.";
+    int quantidadeRemovidos = 0;
+    auto atual = this->getInicio();
+    No<int> *anterior = nullptr;
+    while (atual != nullptr)
+    {
+        if (atual->getValor() == val)
+        {
+            if (anterior == nullptr)
+            {
+                auto remover = atual;
+                this->inicio = atual->proximo;
+                delete remover;
+                atual = this->inicio;
+                quantidadeRemovidos++;
+                continue;
+            }
+
+            if (atual->proximo == nullptr)
+            {
+                auto remover = atual;
+                delete remover;
+                atual = anterior;
+                atual->proximo = nullptr;
+                atual = nullptr;
+                quantidadeRemovidos++;
+                break;
+            }
+            anterior->proximo = atual->proximo;
+            auto remover = atual;
+            delete remover;
+            atual = anterior->proximo;
+            quantidadeRemovidos++;
+            continue;
+        }
+        
+        anterior = atual;
+        atual = atual->getProximo();
+    }
+    return quantidadeRemovidos;
 }
 
 No<int>* ListaEncadeada::getInicio()
