@@ -16,32 +16,57 @@ Analisador::Analisador()
 
 bool Analisador::eBemFormada(std::string str)
 {
-    // como declarar a pilha que armazenará caracteres do tipo char
     stack<char> pilha;
 
-    // como iterar os carecteres da string de entrada
-    for(char ch : str)
+    for (char ch : str)
     {
-        // como empilhar um caractere
-        pilha.push(ch);
-
-        // como acessar o caractere do topo da pilha
-        char aux = pilha.top();
-
-        if( ch == '(')
+        if (ch == '(' || ch == '[' || ch == '{')
         {
-            // como checar se uma pilha é vazia
-            if(pilha.empty())
+            pilha.push(ch);
+        }
+        if (ch == ')')
+        {
+            if (pilha.empty() == true)
             {
-                
+                return false;
             }
-            else 
+            if (pilha.top() != '(')
             {
-                // como remover um elemento da pilha
-                pilha.pop();
+                return false;
             }
+            pilha.pop();
+        }
+        if (ch == ']')
+        {
+            if (pilha.empty() == true)
+            {
+                return false;
+            }
+
+            if (pilha.top() != '[')
+            {
+                return false;
+            }
+            pilha.pop();
+        }
+        if (ch == '}')
+        {
+            if (pilha.empty() == true)
+            {
+                return false;
+            }
+
+            if (pilha.top() != '{')
+            {
+                return false;
+            }
+            pilha.pop();
         }
     }
+    if (pilha.empty() != true)
+    {
+        return false;
+    }
 
-    throw "ERRO: não implementou";
+    return true;
 }
