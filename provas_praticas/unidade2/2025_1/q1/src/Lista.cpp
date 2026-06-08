@@ -6,7 +6,22 @@
 
 bool Lista::moverParaInicio(std::string str)                                                                                                                                                                                                // versão: EAMB-1.0
 {// ⁣Begin ​
-    throw "Método 'moverParaInicio' não implementado", str; // Lembrar de comentar esta linha ​
+    auto atual = cabeca->proximo;
+    while (atual->valor != str)
+    {
+        if (atual == cauda)
+        {
+            return false;
+        }
+        atual = atual->proximo;
+    }
+    atual->anterior->proximo = atual->proximo;
+    atual->proximo->anterior = atual->anterior;
+    cabeca->proximo->anterior = atual;
+    atual->proximo = cabeca->proximo;
+    cabeca->proximo = atual;
+    atual->anterior = cabeca;
+    return true;
 }//​ End ​​
 
 
