@@ -8,7 +8,50 @@
 // Implemente aqui sua solução ​
 int Lista::removerTodos(const std::string& valor)                                                                                                                                                                                                // versão: EAMB-1.0
 {// Begin​​⁣
-    throw "Método 'removerTodos' não implementado", valor; // Lembre-se de comentar esta linha ​
+    auto quantidadeRemovidos = 0;
+    auto atual = this->primeiro;
+    Lista::No *anterior = nullptr;
+    while (atual != nullptr)
+    {
+        if (atual->valor == valor)
+        {
+            if (anterior == nullptr)
+            {
+                auto auxiliar = this->primeiro;
+                this->primeiro = this->primeiro->proximo;
+                if (this->primeiro == nullptr)
+                {
+                    this->ultimo = nullptr;
+                }
+                delete auxiliar;
+                this->quantidade--;
+                atual = this->primeiro;
+                quantidadeRemovidos++;
+                continue;
+            }
+
+            if (atual->proximo == nullptr)
+            {
+                delete this->ultimo;
+                this->ultimo = anterior;
+                this->ultimo->proximo = nullptr;
+                this->quantidade--;
+                atual = nullptr;
+                quantidadeRemovidos++;
+                break;
+            }
+            anterior->proximo = atual->proximo;
+            auto remover = atual;
+            delete remover;
+            atual = anterior->proximo;
+            quantidadeRemovidos++;
+            this->quantidade--;
+            continue;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    return quantidadeRemovidos;
 }// End​
 
 
