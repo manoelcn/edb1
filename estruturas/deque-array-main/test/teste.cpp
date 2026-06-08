@@ -46,24 +46,24 @@ TEST_CASE("Deque - Empurrar elementos na frente além da capacidade deve lançar
     CHECK_THROWS_AS(deque.empurrarFrente(3), std::overflow_error);
 }
 
-// TEST_CASE("Deque - Remover de trás e da frente na ordem correta") {
-//     Deque<int> deque(4);
-//     deque.empurrarAtras(5);    // {5}
-//     deque.empurrarFrente(10);  // {10, 5}
-//     deque.empurrarAtras(15);    // {10, 5, 15}
-//     deque.empurrarFrente(20);  // {20, 10, 5, 15}
-//     CHECK(deque.tamanho() == 4);
+TEST_CASE("Deque - Remover de trás e da frente na ordem correta") {
+    Deque<int> deque(4);
+    deque.empurrarAtras(5);    // {5}
+    deque.empurrarFrente(10);  // {10, 5}
+    deque.empurrarAtras(15);    // {10, 5, 15}
+    deque.empurrarFrente(20);  // {20, 10, 5, 15}
+    CHECK(deque.tamanho() == 4);
 
-//     // Ordem de remoção: front: 20, front: 10, back: 15, back: 5
-//     CHECK(deque.removerFrente() == 20);
-//     CHECK(deque.tamanho() == 3);
-//     CHECK(deque.removerFrente() == 10);
-//     CHECK(deque.tamanho() == 2);
-//     CHECK(deque.removerAtras() == 15);
-//     CHECK(deque.tamanho() == 1);
-//     CHECK(deque.removerAtras() == 5);
-//     CHECK(deque.vazia());
-// }
+    // Ordem de remoção: front: 20, front: 10, back: 15, back: 5
+    CHECK(deque.removerFrente() == 20);
+    CHECK(deque.tamanho() == 3);
+    CHECK(deque.removerFrente() == 10);
+    CHECK(deque.tamanho() == 2);
+    CHECK(deque.removerAtras() == 15);
+    CHECK(deque.tamanho() == 1);
+    CHECK(deque.removerAtras() == 5);
+    CHECK(deque.vazia());
+}
 
 // TEST_CASE("Deque - Remover de deque vazio deve lançar exceção") {
 //     Deque<int> deque(2);

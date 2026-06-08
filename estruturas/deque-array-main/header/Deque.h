@@ -75,10 +75,26 @@ public:
 
     T removerFrente()
     {
+        if (this->vazia() == true)
+        {
+            throw std::underflow_error("Deque vazio.");
+        }
+        auto temp = this->elementos[this->frente];
+        this->frente = (this->frente + 1) % this->capacidade;
+        this->quantidade--;
+        return temp;
     }
 
     T removerAtras()
     {
+        if (this->vazia() == true)
+        {
+            throw std::underflow_error("Deque vazio.");
+        }
+        auto temp = this->elementos[this->atras - 1];
+        this->atras = (this->atras - 1) % this->capacidade;
+        this->quantidade--;
+        return temp;
     }
 
     T daFrente() const
