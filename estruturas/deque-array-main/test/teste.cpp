@@ -28,23 +28,23 @@ TEST_CASE("Deque - Empurrar elementos atrás além da capacidade deve lançar ex
     CHECK_THROWS_AS(deque.empurrarAtras(3), std::overflow_error);
 }
 
-// TEST_CASE("Deque - Empurrar elementos na frente até a capacidade máxima") {
-//     Deque<int> deque(3);
-//     deque.empurrarFrente(10); // {10}
-//     deque.empurrarFrente(20); // {20, 10}
-//     deque.empurrarFrente(30); // {30, 20, 10}
-//     CHECK(deque.tamanho() == 3);
-//     CHECK(deque.cheia());
-//     CHECK(deque.daFrente() == 30);
-//     CHECK(deque.deTras() == 10);
-// }
+TEST_CASE("Deque - Empurrar elementos na frente até a capacidade máxima") {
+    Deque<int> deque(3);
+    deque.empurrarFrente(10); // {10}
+    deque.empurrarFrente(20); // {20, 10}
+    deque.empurrarFrente(30); // {30, 20, 10}
+    CHECK(deque.tamanho() == 3);
+    CHECK(deque.cheia());
+    CHECK(deque.daFrente() == 30);
+    CHECK(deque.deTras() == 10);
+}
 
-// TEST_CASE("Deque - Empurrar elementos na frente além da capacidade deve lançar exceção") {
-//     Deque<int> deque(2);
-//     deque.empurrarFrente(1);
-//     deque.empurrarFrente(2);
-//     CHECK_THROWS_AS(deque.empurrarFrente(3), std::overflow_error);
-// }
+TEST_CASE("Deque - Empurrar elementos na frente além da capacidade deve lançar exceção") {
+    Deque<int> deque(2);
+    deque.empurrarFrente(1);
+    deque.empurrarFrente(2);
+    CHECK_THROWS_AS(deque.empurrarFrente(3), std::overflow_error);
+}
 
 // TEST_CASE("Deque - Remover de trás e da frente na ordem correta") {
 //     Deque<int> deque(4);

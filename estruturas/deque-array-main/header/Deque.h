@@ -53,6 +53,13 @@ public:
 
     void empurrarFrente(T elemento)
     {
+        if (this->cheia() == true)
+        {
+            throw std::overflow_error("Deque cheio.");
+        }
+        this->frente = (this->frente - 1 + this->capacidade) % this->capacidade;
+        this->elementos[this->frente] = elemento;
+        this->quantidade++;
     }
 
     void empurrarAtras(T elemento)
