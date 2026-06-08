@@ -65,69 +65,69 @@ TEST_CASE("Deque - Remover de trás e da frente na ordem correta") {
     CHECK(deque.vazia());
 }
 
-// TEST_CASE("Deque - Remover de deque vazio deve lançar exceção") {
-//     Deque<int> deque(2);
-//     CHECK_THROWS_AS(deque.removerFrente(), std::underflow_error);
-//     CHECK_THROWS_AS(deque.removerAtras(), std::underflow_error);
-// }
+TEST_CASE("Deque - Remover de deque vazio deve lançar exceção") {
+    Deque<int> deque(2);
+    CHECK_THROWS_AS(deque.removerFrente(), std::underflow_error);
+    CHECK_THROWS_AS(deque.removerAtras(), std::underflow_error);
+}
 
-// TEST_CASE("Deque - Acessar frente e tras de deque vazio deve lançar exceção") {
-//     Deque<std::string> deque(2);
-//     CHECK_THROWS_AS(deque.daFrente(), std::underflow_error);
-//     CHECK_THROWS_AS(deque.deTras(), std::underflow_error);
-// }
+TEST_CASE("Deque - Acessar frente e tras de deque vazio deve lançar exceção") {
+    Deque<std::string> deque(2);
+    CHECK_THROWS_AS(deque.daFrente(), std::underflow_error);
+    CHECK_THROWS_AS(deque.deTras(), std::underflow_error);
+}
 
-// TEST_CASE("Deque - Comportamento circular ao empurrar e remover (back e front)") {
-//     Deque<int> deque(3);
-//     deque.empurrarAtras(1);   // {1}
-//     deque.empurrarAtras(2);   // {1, 2}
-//     deque.empurrarAtras(3);   // {1, 2, 3}
-//     CHECK(deque.cheia());
+TEST_CASE("Deque - Comportamento circular ao empurrar e remover (back e front)") {
+    Deque<int> deque(3);
+    deque.empurrarAtras(1);   // {1}
+    deque.empurrarAtras(2);   // {1, 2}
+    deque.empurrarAtras(3);   // {1, 2, 3}
+    CHECK(deque.cheia());
 
-//     // Remove um do início e adiciona no fim para forçar wrap-around
-//     CHECK(deque.removerFrente() == 1); // {2, 3}
-//     deque.empurrarAtras(4);              // {2, 3, 4}
+    // Remove um do início e adiciona no fim para forçar wrap-around
+    CHECK(deque.removerFrente() == 1); // {2, 3}
+    deque.empurrarAtras(4);              // {2, 3, 4}
 
-//     CHECK(deque.daFrente() == 2);
-//     CHECK(deque.deTras() == 4);
+    CHECK(deque.daFrente() == 2);
+    CHECK(deque.deTras() == 4);
 
-//     // Remove do fim e empurra no início para wrap-around inverso
-//     CHECK(deque.removerAtras() == 4);    // {2, 3}
-//     deque.empurrarFrente(5);           // {5, 2, 3}
+    // Remove do fim e empurra no início para wrap-around inverso
+    CHECK(deque.removerAtras() == 4);    // {2, 3}
+    deque.empurrarFrente(5);           // {5, 2, 3}
 
-//     CHECK(deque.daFrente() == 5);
-//     CHECK(deque.deTras() == 3);
+    CHECK(deque.daFrente() == 5);
+    CHECK(deque.deTras() == 3);
 
-//     // Esvaziar completamente
-//     CHECK(deque.removerFrente() == 5);
-//     CHECK(deque.removerFrente() == 2);
-//     CHECK(deque.removerFrente() == 3);
-//     CHECK(deque.vazia());
-// }
+    // Esvaziar completamente
+    CHECK(deque.removerFrente() == 5);
+    CHECK(deque.removerFrente() == 2);
+    CHECK(deque.removerFrente() == 3);
+    CHECK(deque.vazia());
+}
 
-// TEST_CASE("Deque - Impressão do deque deve refletir a ordem dos elementos") {
-//     Deque<int> deque(5);
-//     deque.empurrarAtras(100);     // {100}
-//     deque.empurrarAtras(200);     // {100, 200}
-//     deque.empurrarFrente(50);   // {50, 100, 200}
-//     deque.empurrarAtras(300);     // {50, 100, 200, 300}
-//     CHECK(deque.imprimir() == "{ 50 100 200 300 }");
+TEST_CASE("Deque - Impressão do deque deve refletir a ordem dos elementos") {
+    Deque<int> deque(5);
+    deque.empurrarAtras(100);     // {100}
+    deque.empurrarAtras(200);     // {100, 200}
+    deque.empurrarFrente(50);   // {50, 100, 200}
+    deque.empurrarAtras(300);     // {50, 100, 200, 300}
+    CHECK(deque.imprimir() == "{ 50 100 200 300 }");
 
-//     deque.removerFrente();      // {100, 200, 300}
-//     deque.empurrarFrente(25);   // {25, 100, 200, 300}
-//     CHECK(deque.imprimir() == "{ 25 100 200 300 }");
-// }
+    deque.removerFrente();      // {100, 200, 300}
+    deque.empurrarFrente(25);   // {25, 100, 200, 300}
+    CHECK(deque.imprimir() == "{ 25 100 200 300 }");
+}
 
-// TEST_CASE("Deque - Teste com diferentes tipos (int, double, string)") {
-//     Deque<double> dequeD(3);
-//     dequeD.empurrarAtras(3.14);
-//     dequeD.empurrarFrente(2.71);
-//     CHECK(dequeD.daFrente() == doctest::Approx(2.71));
-//     CHECK(dequeD.deTras() == doctest::Approx(3.14));
+TEST_CASE("Deque - Teste com diferentes tipos (int, double, string)") {
+    Deque<double> dequeD(3);
+    dequeD.empurrarAtras(3.14);
+    dequeD.empurrarFrente(2.71);
+    CHECK(dequeD.daFrente() == doctest::Approx(2.71));
+    CHECK(dequeD.deTras() == doctest::Approx(3.14));
 
-//     Deque<std::string> dequeS(3);
-//     dequeS.empurrarAtras("foo");
-//     dequeS.empurrarFrente("bar");
-//     CHECK(dequeS.daFrente() == "bar");
-//     CHECK(dequeS.deTras() == "foo");
-// }
+    Deque<std::string> dequeS(3);
+    dequeS.empurrarAtras("foo");
+    dequeS.empurrarFrente("bar");
+    CHECK(dequeS.daFrente() == "bar");
+    CHECK(dequeS.deTras() == "foo");
+}

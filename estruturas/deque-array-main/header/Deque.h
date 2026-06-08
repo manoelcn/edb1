@@ -99,11 +99,19 @@ public:
 
     T daFrente() const
     {
+        if (this->vazia() == true)
+        {
+            throw std::underflow_error("Deque vazio.");
+        }
         return this->elementos[this->frente];
     }
 
     T deTras() const
     {
+        if (this->vazia() == true)
+        {
+            throw std::underflow_error("Deque vazio.");
+        }
         return this->elementos[(this->atras - 1 + this->capacidade) % this->capacidade];
     }
 
