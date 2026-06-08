@@ -5,32 +5,54 @@ using namespace std;
 
 bool ehPalindromo(string str)
 {
-    // como declarar a pilha que armazenará caracteres do tipo char
+    // // como declarar a pilha que armazenará caracteres do tipo char
+    // stack<char> pilha;
+
+    // // como iterar os carecteres da string de entrada
+    // for(char ch : str)
+    // {
+    //     // como empilhar um caractere
+    //     pilha.push(ch);
+
+    //     // como acessar o caractere do topo da pilha
+    //     char aux = pilha.top();
+
+    //     if( ch == ' ') // checar se é um espaço em branco
+    //     {
+    //         // como checar se uma pilha é vazia
+    //         if(pilha.empty())
+    //         {
+
+    //         }
+    //         else
+    //         {
+    //             // como remover um elemento da pilha
+    //             pilha.pop();
+    //         }
+    //     }
+    // }
+
+    // throw "ERRO: não implementou";
     stack<char> pilha;
 
-    // como iterar os carecteres da string de entrada
-    for(char ch : str)
+    for (char ch : str)
     {
-        // como empilhar um caractere
-        pilha.push(ch);
-
-        // como acessar o caractere do topo da pilha
-        char aux = pilha.top();
-
-        if( ch == ' ') // checar se é um espaço em branco
+        if (ch != ' ')
         {
-            // como checar se uma pilha é vazia
-            if(pilha.empty())
-            {
-                
-            }
-            else 
-            {
-                // como remover um elemento da pilha
-                pilha.pop();
-            }
+            pilha.push(ch);
         }
     }
 
-    throw "ERRO: não implementou";
+    for (char ch : str)
+    {
+        if (ch != ' ')
+        {
+            if (ch != pilha.top())
+            {
+                return false;
+            }
+            pilha.pop();
+        }
+    }
+    return true;
 }
