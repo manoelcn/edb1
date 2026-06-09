@@ -5,6 +5,8 @@
 //
 
 #include "ListaDuplamenteEncadeada.h"
+#include "No.h"
+#include <string>
 
 ListaDuplamenteEncadeada::ListaDuplamenteEncadeada()
 {
@@ -33,8 +35,29 @@ ListaDuplamenteEncadeada::~ListaDuplamenteEncadeada()
 }
 
 bool ListaDuplamenteEncadeada::inserirOrdenado(std::string s)
-{	
-	throw "\n!!! MÉTODO 'inserirOrdenado' AINDA NÃO FOI IMPLEMENTADO !!! \n";
+{
+	auto atual = this->cabeca->getProximo();
+	while (atual != this->cauda)
+	{
+		if (atual->getValor() == s)
+		{
+			return false;
+		}
+		atual =  atual->getProximo();
+	}
+
+	atual = this->cabeca->getProximo();
+	while ( atual != this->cauda && s < atual->getValor()) 
+	{
+		atual = atual->getProximo();
+	}
+	No<std::string> *novo = new No<std::string>(s);
+	novo->setAnterior(atual->getAnterior());
+	novo->setProximo(atual);
+	atual->getAnterior()->setProximo(novo);
+	atual->setAnterior(novo);
+	this->quantidade++;
+	return true;
 }
 
 No<std::string>* ListaDuplamenteEncadeada::getCabeca(void)
