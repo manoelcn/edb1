@@ -1,4 +1,4 @@
-#include "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2025_2/q1/header/Lista.h"
+#include "Lista.h"
 #include <sstream>
 #include <stdexcept>
 #define __CHECK_INTEGRIDADE__ 1
