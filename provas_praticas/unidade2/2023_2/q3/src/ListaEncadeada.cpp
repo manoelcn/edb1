@@ -41,7 +41,24 @@ bool  ListaEncadeada::e_simetrica()
     // Use essa pilha para resolver o problema
     std::stack<std::string> pilha;
 
-    throw "\n!!! MÉTODO 'e_simetrica' AINDA NÃO FOI IMPLEMENTADO !!! \n";
+    auto atual = this->inicio;
+    while (atual != nullptr) 
+    {
+        pilha.push(atual->getValor());
+        atual = atual->getProximo();
+    }
+
+    atual = this->inicio;
+    while (atual != nullptr) 
+    {
+        if (pilha.top() != atual->getValor()) 
+        {
+            return false;
+        }
+        pilha.pop();
+        atual = atual->getProximo();
+    }
+    return true;
 }
 
 bool ListaEncadeada::vazia()
