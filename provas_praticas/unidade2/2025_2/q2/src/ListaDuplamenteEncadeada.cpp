@@ -1,11 +1,31 @@
-#include "ListaDuplamenteEncadeada.h"
+#include "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2025_2/q2/header/ListaDuplamenteEncadeada.h"
 #include <sstream>
 #include <stdexcept>
 #define __CHECK_INTEGRIDADE__ 1
 
 bool ListaDuplamenteEncadeada::buscar_e_mover(const std::string& s)                                                                                                                                                                                                 // versão: EAMB-1.0
 {   // ​Leia o enunciado com atenção antes de implementar este método. 
-    throw std::runtime_error("Ainda não foi implementado.");
+    auto atual = this->cabeca->proximo;
+    while (atual != this->cauda) 
+    {
+        if (atual->valor == s) 
+        {
+            if (atual == this->cabeca->proximo) 
+            {
+                return true;
+            }
+            atual->anterior->proximo = atual->proximo;
+            atual->proximo->anterior = atual->anterior;
+            
+            this->cabeca->proximo->anterior = atual;
+            atual->proximo = this->cabeca->proximo;
+            atual->anterior = this->cabeca;
+            this->cabeca->proximo = atual;
+            return true;
+        }
+        atual = atual->proximo;
+    }
+    return false;
 }
 
 
