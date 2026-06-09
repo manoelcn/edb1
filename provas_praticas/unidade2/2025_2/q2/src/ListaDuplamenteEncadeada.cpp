@@ -1,4 +1,4 @@
-#include "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2025_2/q2/header/ListaDuplamenteEncadeada.h"
+#include "ListaDuplamenteEncadeada.h"
 #include <sstream>
 #include <stdexcept>
 #define __CHECK_INTEGRIDADE__ 1
@@ -16,7 +16,7 @@ bool ListaDuplamenteEncadeada::buscar_e_mover(const std::string& s)             
             }
             atual->anterior->proximo = atual->proximo;
             atual->proximo->anterior = atual->anterior;
-            
+
             this->cabeca->proximo->anterior = atual;
             atual->proximo = this->cabeca->proximo;
             atual->anterior = this->cabeca;
