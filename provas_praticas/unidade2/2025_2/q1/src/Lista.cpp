@@ -1,11 +1,46 @@
-#include "Lista.h"
+#include "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2025_2/q1/header/Lista.h"
 #include <sstream>
 #include <stdexcept>
 #define __CHECK_INTEGRIDADE__ 1
 
 bool Lista::removerUltimaOcorrencia(const std::string& s)                                                                                                                                                                                                 // versão: EAMB-1.0
 {   // ​Leia o enunciado com atenção antes de implementar este método. ​
-    throw std::runtime_error("Ainda não foi implementado.");
+    if (this->quantidade == 0) 
+    {
+        return false;
+    }
+    auto atual = this->primeiro;
+    No *anterior = nullptr;
+    No *alvo = nullptr;
+    No *anteriorAlvo = nullptr;
+    while (atual != nullptr) 
+    {
+        if (atual->valor == s) 
+        {
+            alvo = atual;
+            anteriorAlvo = anterior;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    if (alvo == nullptr) 
+    {
+        return false;    
+    }
+    else
+    {
+        if (anteriorAlvo == nullptr) 
+        {
+            this->primeiro = alvo->proximo;
+            delete alvo;
+            this->quantidade--;
+            return true;
+        }
+        anteriorAlvo->proximo = alvo->proximo;
+        delete alvo;
+        this->quantidade--;
+        return true;
+    }
 }
 
 
