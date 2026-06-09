@@ -44,17 +44,34 @@ public:
     // ​Leia o enunciado com atenção antes de implementar este método. 
     T frente()                                                                                                                                                                                                // versão: EAMB-1.0
     {// Begin ​
-        throw "Método 'frente' não implementado.";// Lembre-se de comentar esta linha ​
+        if (this->vazia() == true) 
+        {
+            throw std::underflow_error("Lista vazia");
+        }
+        return this->elementos[this->inicio];
     }// End
 
     void enfileirar(T elemento)
     {// Begin
-        throw "Método 'enfileirar' não implementado.", elemento;// Lembre-se de comentar esta linha 
+        if (this->cheia() == true) 
+        {
+            throw std::overflow_error("Lista cheia");
+        }
+        this->elementos[this->fim] = elemento;
+        this->fim = (this->fim + 1) % this->capacidade;
+        this->quantidade++;
     }// End​
 
     T desenfileirar()
     {// Begin ​
-        throw "Método 'desenfileirar'não implementado.";// Lembre-se de comentar esta linha 
+        if (this->vazia() == true) 
+        {
+            throw std::underflow_error("Lista vazia");
+        }
+        auto valorElemento = this->elementos[this->inicio];
+        this->inicio = (this->inicio + 1) % this->capacidade;
+        this->quantidade--;
+        return valorElemento;
     }//⁣ End
 
     bool cheia()
