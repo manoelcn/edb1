@@ -1,0 +1,74 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-std=c++14",
+      "-Iheader",
+      "-I../lib/catch2",
+      "-c",
+      "-o",
+      "src/ListaEncadeada.o",
+      "src/ListaEncadeada.cpp"
+    ],
+    "directory": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1",
+    "file": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1/src/ListaEncadeada.cpp",
+    "output": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1/src/ListaEncadeada.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-std=c++14",
+      "-Iheader",
+      "-I../lib/catch2",
+      "-c",
+      "-o",
+      "src/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1",
+    "file": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1/src/main.cpp",
+    "output": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-std=c++14",
+      "-Iheader",
+      "-I../lib/catch2",
+      "-c",
+      "-o",
+      "test/teste.o",
+      "test/teste.cpp"
+    ],
+    "directory": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1",
+    "file": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1/test/teste.cpp",
+    "output": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1/test/teste.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-std=c++14",
+      "-Iheader",
+      "-I../lib/catch2",
+      "-c",
+      "-o",
+      "../lib/catch2/catch_amalgamated.o",
+      "../lib/catch2/catch_amalgamated.cpp"
+    ],
+    "directory": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/q1",
+    "file": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/lib/catch2/catch_amalgamated.cpp",
+    "output": "/home/mcandido/Desenvolvimento/edb1/provas_praticas/unidade2/2023_2 - 2a aplicacao/lib/catch2/catch_amalgamated.o"
+  }
+]
