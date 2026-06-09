@@ -22,9 +22,24 @@ ListaEncadeada::~ListaEncadeada()
 
 void ListaEncadeada::inserirNoInicio(int e){auto n = new No<int>(e);if( inicio == nullptr ) inicio = n;else { n->setProximo( inicio );inicio = n;}}
 
-int ListaEncadeada::removerRepetidos()
-{
-    
+int ListaEncadeada::removerRepetidos() {
+    int repetidos = 0;
+    auto atual = this->getInicio();
+    while (atual != nullptr && atual->getProximo() != nullptr) 
+    {
+        if (atual->getValor() == atual->getProximo()->getValor()) 
+        {
+            auto remover = atual->getProximo();
+            atual->setProximo(atual->getProximo()->getProximo());
+            delete remover;
+            repetidos++;
+        }
+        else
+        {
+        atual = atual->getProximo();
+        }
+    }
+    return repetidos;
 }
 
 No<int>* ListaEncadeada::getInicio()
