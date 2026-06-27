@@ -129,7 +129,24 @@ public:
 
 	bool inserir(const std::string &chave, const std::string &valor)
 	{
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = hash(chave);
+		auto no = this->array[indice];
+
+		while (no != nullptr)
+		{
+			if (chave == no->chave)
+			{
+				no->valor = valor;
+				return true;
+			}
+			no = no->proximo;
+		}
+
+		No *novo = new No(chave, valor);
+		novo->proximo = array[indice];
+		array[indice] = novo;
+		this->quantidade++;
+		return true;
 	}
 
 	bool remover(const std::string &chave)
