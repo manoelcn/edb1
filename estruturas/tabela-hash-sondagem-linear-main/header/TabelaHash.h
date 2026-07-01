@@ -150,7 +150,23 @@ public:
 
     bool remover(const std::string &chave)
     {
-        throw "Método ainda não implementado";
+        for (int delta = 0; delta < this->capacidade; delta++)
+        {
+            auto indice = (hash(chave) + delta) % this->capacidade;
+            auto elemento = this->array[indice];
+
+            if (elemento.chave == chave && elemento.estado == Estado::OCUPADO)
+            {
+                this->array[indice].estado = Estado::REMOVIDO;
+                this->quantidade--;
+                return true;
+            }
+            else if (elemento.estado == Estado::LIVRE)
+            {
+                return false;
+            }
+        }
+        return false;
     }
 
     std::optional<std::string> buscar(const std::string &chave) const
