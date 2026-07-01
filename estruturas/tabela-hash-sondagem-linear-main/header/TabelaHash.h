@@ -71,12 +71,15 @@ private:
 
     void aumentar()
     {
-        throw "Método ainda não implementado";
+        auto novaCapacidade = this->capacidade + 2 + 1;
+        redimensionar(novaCapacidade);
     }
 
     void diminuir()
     {
-        throw "Método ainda não implementado";
+        auto metade = this->capacidade / 2;
+        auto novaCapacidade = metade % 2 == 0 ? metade + 1 : metade;
+        redimensionar(novaCapacidade);
     }
 
     void redimensionar(size_t tamanhoNovo)
