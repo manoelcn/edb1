@@ -84,7 +84,35 @@ private:
 
     void redimensionar(size_t tamanhoNovo)
     {
-        throw "Método ainda não implementado";
+        auto arrayNovo = new Elemento[tamanhoNovo];
+        auto arrayVelho = this->array;
+        this->array = arrayNovo;
+
+        auto capacidadeVelha = this->capacidade;
+        this->capacidade = tamanhoNovo;
+
+        for (int i = 0; i < capacidadeVelha; i++)
+        {
+            auto elemento = arrayVelho[i];
+
+            if (elemento.estado == Estado::OCUPADO)
+            {
+                for (int delta = 0; delta < this->capacidade; delta++)
+                {
+                    auto indice = (this->hash(elemento.chave) + delta) % this->capacidade;
+
+                    if (arrayNovo[indice].estado == Estado::LIVRE)
+                    {
+                        arrayNovo[indice].chave = elemento.chave;
+                        arrayNovo[indice].valor = elemento.valor;
+                        arrayNovo[indice].estado = Estado::OCUPADO;
+                        break;
+                    }
+                }
+            }
+        }
+
+        delete[] arrayVelho;
     }
 
 public:
