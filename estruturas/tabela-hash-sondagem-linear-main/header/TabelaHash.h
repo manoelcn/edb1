@@ -8,60 +8,63 @@
 #define TABELA_HASH_H
 
 #include <string>
+#include <optional>
 #include <unordered_set>
 #include <iostream>
 
-enum class Estado 
-{ 
-    LIVRE = 0, 
-    OCUPADO, 
-    REMOVIDO 
-};
-
-struct Elemento 
+enum class Estado
 {
-        std::string chave;
-        std::string valor;
-        Estado estado = Estado::LIVRE;
+    LIVRE = 0,
+    OCUPADO,
+    REMOVIDO
 };
 
-enum class ConsistenciaStatus {
+struct Elemento
+{
+    std::string chave;
+    std::string valor;
+    Estado estado = Estado::LIVRE;
+};
+
+enum class ConsistenciaStatus
+{
     OK = 0,
     QUANTIDADE_INCORRETA,
     CHAVE_DUPLICADA,
 };
 
-class TabelaHash 
+class TabelaHash
 {
     friend class TabelaHashTestHelper;
 
 private:
-    Elemento* array;
+    Elemento *array;
     int capacidade;
-    int quantidade;    
-    
+    int quantidade;
+
     static constexpr int CAPACIDADE_PADRAO = 17;
     static constexpr float CARGA_LIMITE_INFERIOR = 0.125f;
     static constexpr float CARGA_LIMITE_SUPERIOR = 0.5f;
 
-    size_t valorHash(const std::string& chave) const 
+    size_t valorHash(const std::string &chave) const
     {
         size_t valorHash = 0;
-		for (char c : chave) {
-			// Função simples para facilitar colisões em testes
-			valorHash += static_cast<unsigned int>(c);
-			// Forma melhor de calcular valor hash que gera valores mais distribuídos
-			// valorHash = 31 * valorHash + static_cast<unsigned int>(c);
-		}
+        for (char c : chave)
+        {
+            // Função simples para facilitar colisões em testes
+            valorHash += static_cast<unsigned int>(c);
+            // Forma melhor de calcular valor hash que gera valores mais distribuídos
+            // valorHash = 31 * valorHash + static_cast<unsigned int>(c);
+        }
         return valorHash;
     }
 
-    int hash(const std::string& chave) const 
+    int hash(const std::string &chave) const
     {
-        return this->valorHash(chave) % this->capacidade; 
+        return this->valorHash(chave) % this->capacidade;
     }
 
-    float fatorDeCarga() 
+    float fatorDeCarga()
     {
         return (float)quantidade / (float)capacidade;
     }
@@ -82,27 +85,75 @@ private:
     }
 
 public:
-    TabelaHash(int capacidadeInicial = CAPACIDADE_PADRAO) : capacidade(capacidadeInicial) , quantidade(0)
+    TabelaHash(int capacidadeInicial = CAPACIDADE_PADRAO) : capacidade(capacidadeInicial), quantidade(0)
     {
         this->array = new Elemento[this->capacidade];
     }
 
     ~TabelaHash()
     {
-        delete [] this->array;
+        delete[] this->array;
     }
 
-    bool inserir(const std::string& chave, const std::string& valor)
+    bool inserir(const std::string &chave, const std::string &valor)
+    {
+        auto posicaoRemovida = -1;
+        for (int delta = 0; delta < this->capacidade; delta++)
+        {
+            auto indice = (this->hash(chave) + delta) % this->capacidade;
+            auto elemento = this->array[indice];
+
+            if (elemento.estado == Estado::LIVRE)
+            {
+                if (posicaoRemovida == -1)
+                {
+                    this->array[indice].chave = chave;
+                    this->array[indice].valor = valor;
+                    this->array[indice].estado = Estado::OCUPADO;
+                }
+                else
+                {
+                    this->array[posicaoRemovida].chave = chave;
+                    this->array[posicaoRemovida].valor = valor;
+                    this->array[posicaoRemovida].estado = Estado::OCUPADO;
+                }
+
+                this->quantidade++;
+                return true;
+            }
+
+            else if (elemento.estado == Estado::OCUPADO && elemento.chave == chave)
+            {
+                this->array[indice].valor = valor;
+                return true;
+            }
+
+            else if (elemento.estado == Estado::REMOVIDO && posicaoRemovida == -1)
+            {
+                posicaoRemovida = indice;
+            }
+        }
+
+        if (posicaoRemovida == -1)
+        {
+            throw std::overflow_error("Tabela cheia");
+        }
+        else
+        {
+            this->array[posicaoRemovida].chave = chave;
+            this->array[posicaoRemovida].valor = valor;
+            this->array[posicaoRemovida].estado = Estado::OCUPADO;
+            this->quantidade++;
+            return true;
+        }
+    }
+
+    bool remover(const std::string &chave)
     {
         throw "Método ainda não implementado";
     }
 
-    bool remover(const std::string& chave)
-    {
-        throw "Método ainda não implementado";
-    }
-
-    std::optional<std::string> buscar(const std::string& chave) const 
+    std::optional<std::string> buscar(const std::string &chave) const
     {
         throw "Método ainda não implementado";
     }
@@ -114,7 +165,7 @@ public:
 
         for (int i = 0; i < this->capacidade; ++i)
         {
-            const Elemento& e = this->array[i];
+            const Elemento &e = this->array[i];
 
             if (e.estado == Estado::OCUPADO)
             {
@@ -137,7 +188,7 @@ public:
         return ConsistenciaStatus::OK;
     }
 
-    int tamanho() const 
+    int tamanho() const
     {
         return quantidade;
     }
@@ -147,7 +198,7 @@ public:
         return this->quantidade == 0;
     }
 
-    bool cheia() const 
+    bool cheia() const
     {
         return this->capacidade == this->quantidade;
     }
@@ -156,21 +207,21 @@ public:
     {
         for (int i = 0; i < this->capacidade; ++i)
         {
-            const Elemento& e = this->array[i];
+            const Elemento &e = this->array[i];
 
             std::cout << "[" << i << "]: ";
 
             switch (e.estado)
             {
-                case Estado::LIVRE:
-                    std::cout << "LIVRE";
-                    break;
-                case Estado::REMOVIDO:
-                    std::cout << "REMOVIDO";
-                    break;
-                case Estado::OCUPADO:
-                    std::cout << "OCUPADO (" << e.chave << ", " << e.valor << ")";
-                    break;
+            case Estado::LIVRE:
+                std::cout << "LIVRE";
+                break;
+            case Estado::REMOVIDO:
+                std::cout << "REMOVIDO";
+                break;
+            case Estado::OCUPADO:
+                std::cout << "OCUPADO (" << e.chave << ", " << e.valor << ")";
+                break;
             }
 
             std::cout << std::endl;
