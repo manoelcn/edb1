@@ -171,7 +171,22 @@ public:
 
     std::optional<std::string> buscar(const std::string &chave) const
     {
-        throw "Método ainda não implementado";
+        for (int delta = 0; delta < this->capacidade; delta++)
+        {
+            auto indice = (hash(chave) + delta) % this->capacidade;
+            auto elemento = this->array[indice];
+
+            if (elemento.chave == chave && elemento.estado == Estado::OCUPADO)
+            {
+                return this->array[indice].valor;
+            }
+
+            else if (elemento.estado == Estado::LIVRE)
+            {
+                return std::nullopt;
+            }
+        }
+        return std::nullopt;
     }
 
     ConsistenciaStatus checarConsistencia() const
