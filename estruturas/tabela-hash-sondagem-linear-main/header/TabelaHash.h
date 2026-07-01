@@ -71,7 +71,7 @@ private:
 
     void aumentar()
     {
-        auto novaCapacidade = this->capacidade + 2 + 1;
+        auto novaCapacidade = this->capacidade * 2 + 1;
         redimensionar(novaCapacidade);
     }
 
