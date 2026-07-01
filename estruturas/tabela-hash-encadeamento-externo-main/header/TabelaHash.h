@@ -143,8 +143,8 @@ public:
 		}
 
 		No *novo = new No(chave, valor);
-		novo->proximo = array[indice];
-		array[indice] = novo;
+		novo->proximo = this->array[indice];
+		this->array[indice] = novo;
 		this->quantidade++;
 		return true;
 	}
