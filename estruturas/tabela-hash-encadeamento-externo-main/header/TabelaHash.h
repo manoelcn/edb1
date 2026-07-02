@@ -151,12 +151,47 @@ public:
 
 	bool remover(const std::string &chave)
 	{
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = this->hash(chave);
+		No *atual = this->array[indice];
+		No *anterior = nullptr;
+
+		while (atual != nullptr)
+		{
+			if (atual->chave == chave)
+			{
+				if (anterior == nullptr)
+				{
+					array[indice] = atual->proximo;
+				}
+				else
+				{
+					anterior->proximo = atual->proximo;
+				}
+				delete atual;
+				this->quantidade--;
+				return true;
+			}
+
+			anterior = atual;
+			atual = atual->proximo;
+		}
+		return false;
 	}
 
 	std::optional<std::string> buscar(const std::string &chave) const
 	{
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = this->hash(chave);
+		auto elemento = this->array[indice];
+
+		while (elemento != nullptr)
+		{
+			if (elemento->chave == chave)
+			{
+				return this->array[indice]->valor;
+			}
+			elemento = elemento->proximo;
+		}
+		return std::nullopt;
 	}
 
 	int tamanho() const
