@@ -124,7 +124,53 @@ public:
 
 	bool inserirOrdenado(const std::string &chave, const std::string &valor)
 	{
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = hash(chave);
+		No *atual = this->array[indice];
+		No *anterior = nullptr;
+
+		while (atual != nullptr)
+		{
+			if (chave < atual->chave)
+			{
+				No *novo = new No(chave, valor);
+
+				if (anterior == nullptr)
+				{
+					novo->proximo = array[indice];
+					array[indice] = novo;
+				}
+				else
+				{
+					novo->proximo = atual;
+					anterior->proximo = novo;
+				}
+
+				this->quantidade++;
+				return true;
+			}
+
+			else if (chave == atual->chave)
+			{
+				atual->valor = valor;
+				return true;
+			}
+
+			anterior = atual;
+			atual = atual->proximo;
+		}
+
+		No *novo = new No(chave, valor);
+
+		if (anterior == nullptr)
+		{
+			array[indice] = novo;
+		}
+		else
+		{
+			anterior->proximo = novo;
+		}
+		this->quantidade++;
+		return true;
 	}
 
 	bool inserir(const std::string &chave, const std::string &valor)
@@ -187,7 +233,7 @@ public:
 		{
 			if (elemento->chave == chave)
 			{
-				return this->array[indice]->valor;
+				return elemento->valor;
 			}
 			elemento = elemento->proximo;
 		}
